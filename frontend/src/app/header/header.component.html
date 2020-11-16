@@ -20,14 +20,24 @@
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/settings" routerLinkActive="active"
+        <a
+          class="nav-link"
+          routerLink="/settings"
+          routerLinkActive="active"
+          [ngClass]="{ disabled: !isAuthenticated }"
           >Settings</a
         >
       </li>
     </ul>
 
     <div class="nav-item navbar-nav">
-      <a class="nav-link" routerLink="/auth" routerLinkActive="active">Login</a>
+      <a
+        class="nav-link"
+        routerLink="/auth"
+        routerLinkActive="active"
+        (click)="onLogout()"
+        >{{ !isAuthenticated ? "Login" : "Logout" }}</a
+      >
     </div>
     <form class="form-inline my-2 my-lg-0">
       <input
