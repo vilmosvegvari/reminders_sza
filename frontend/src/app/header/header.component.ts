@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { AuthService } from '../auth/auth.service';
+import { ReminderService } from '../reminder/reminder.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +14,11 @@ export class HeaderComponent implements OnInit {
   isAuthenticated = false;
   private userSub: Subscription;
 
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private reminderService: ReminderService
+  ) {}
 
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe((user) => {
@@ -21,6 +27,14 @@ export class HeaderComponent implements OnInit {
   }
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
+  }
+
+  onReminderPage() {
+    return this.router.url === '/reminders';
+  }
+
+  reminderSearch(input) {
+    this.reminderService.search(input);
   }
 
   onLogout() {
