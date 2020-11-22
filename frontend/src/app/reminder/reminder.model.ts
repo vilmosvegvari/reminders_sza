@@ -5,7 +5,6 @@ export class Reminder {
     public deadline: Date,
     public creation: Date,
     public description: string,
-    public notification: string,
-    public creator?: string
+    public notification: string
   ) {}
 }
