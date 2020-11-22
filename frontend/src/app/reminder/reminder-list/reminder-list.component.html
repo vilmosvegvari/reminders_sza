@@ -12,7 +12,7 @@
     [reminder]="reminder"
     *ngFor="let reminder of reminders; let i = index"
     (onDelete)="onDeleteItem($event)"
-    (onModify)="onModifyItem($event)"
+    (onModify)="onModifyItem($event); open(content)"
   ></app-reminder-list-item>
 
   <!-- Button trigger modal -->
@@ -32,21 +32,10 @@
       <app-reminder-add
         [reminder]="remindertoModify"
         [modify]="true"
+        (savedModify)="onModifySaved($event); modal.close('')"
       ></app-reminder-add>
     </div>
-    <div class="modal-footer">
-      <button
-        type="button"
-        class="btn btn-dark"
-        (click)="modal.close('Save click')"
-      >
-        Save
-      </button>
-    </div>
   </ng-template>
-  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">
-    Popup using Angular and Bootstrap
-  </button>
 
   <!-- Modal -->
   <div

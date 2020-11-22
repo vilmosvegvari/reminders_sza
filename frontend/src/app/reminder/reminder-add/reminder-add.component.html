@@ -17,7 +17,7 @@
         type="text"
         class="form-control"
         id="nameInput"
-        ngModel
+        [(ngModel)]="formName"
         placeholder="Reminder name"
         name="name"
         required
@@ -30,7 +30,7 @@
         type="datetime-local"
         class="form-control"
         id="deadlineInput"
-        ngModel
+        [(ngModel)]="formDeadline"
         name="deadline"
       />
     </div>
@@ -41,7 +41,7 @@
         class="form-control"
         id="descriptionInput"
         placeholder="Description"
-        ngModel
+        [(ngModel)]="formDescription"
         rows="4"
         name="description"
       ></textarea>
@@ -52,7 +52,7 @@
       (change)="selectOption($event.target.value)"
       class="custom-select"
       id="notificationSelect"
-      ngModel
+      [(ngModel)]="formNotification"
       name="notification"
     >
       <option value="web">Web notification</option>
@@ -79,4 +79,10 @@
       <button type="submit" class="btn btn-dark">Submit</button>
     </div>
   </form>
+
+  <div class="modal-footer" *ngIf="isModify">
+    <button type="button" class="btn btn-dark" (click)="savedModify()">
+      Save
+    </button>
+  </div>
 </div>
