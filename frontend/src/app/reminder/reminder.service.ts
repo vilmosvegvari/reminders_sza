@@ -39,7 +39,7 @@ export class ReminderService {
 
   getReminders() {
     this.http
-      .get<Reminder[]>('http:/localhost:3000/reminders', {})
+      .get<Reminder[]>('http://localhost:3000/reminders', {})
       .pipe(take(1))
       .subscribe((response) => {
         this.allReminders = response;
@@ -52,16 +52,14 @@ export class ReminderService {
     deadline: Date,
     creation: Date,
     description: string,
-    notification: string,
-    userid: string
+    notification: string
   ) {
     this.http
-      .post<Reminder>('http:/localhost:3000/reminders', {
+      .post<Reminder>('http://localhost:3000/reminders', {
         name: name,
         deadline: deadline,
         description: description,
         notification: notification,
-        creator: userid,
         creation: creation,
       })
       .pipe(take(1))
@@ -70,23 +68,14 @@ export class ReminderService {
       });
   }
 
-  updateReminder(
-    reminderid: number,
-    name: string,
-    deadline: Date,
-    creation: Date,
-    description: string,
-    notification: string,
-    userid: string
-  ) {
+  updateReminder(reminder: Reminder) {
     this.http
-      .put<Reminder>(`http:/localhost:3000/reminders/${reminderid}`, {
-        name: name,
-        deadline: deadline,
-        description: description,
-        notification: notification,
-        creator: userid,
-        creation: creation,
+      .put<Reminder>(`http://localhost:3000/reminders/${reminder.id}`, {
+        name: reminder.name,
+        deadline: reminder.deadline,
+        description: reminder.description,
+        notification: reminder.notification,
+        creation: reminder.creation,
       })
       .pipe(take(1))
       .subscribe((response) => {
