@@ -1,1 +1,82 @@
-<p>reminder-add works!</p>
+<h5 class="text-center" *ngIf="!isModify">Add a new Reminder</h5>
+<br />
+
+<div class="justify-content-center">
+  <div *ngIf="isLoading" style="text-align: center">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+
+  <form
+    #reminderForm="ngForm"
+    (ngSubmit)="onSubmit(reminderForm)"
+    *ngIf="!isLoading"
+  >
+    <div class="form-group">
+      <label for="nameInput">Reminder name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nameInput"
+        ngModel
+        placeholder="Reminder name"
+        name="name"
+        required
+      />
+      <div class="text-danger" *ngIf="invalidForm">Please choose a name.</div>
+    </div>
+    <div class="form-group">
+      <label for="deadlineInput">Deadline</label>
+      <input
+        type="datetime-local"
+        class="form-control"
+        id="deadlineInput"
+        ngModel
+        name="deadline"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="descriptionInput">Description</label>
+      <textarea
+        class="form-control"
+        id="descriptionInput"
+        placeholder="Description"
+        ngModel
+        rows="4"
+        name="description"
+      ></textarea>
+    </div>
+
+    <label for="notificationSelect">Select Notifcation Mode</label>
+    <select
+      (change)="selectOption($event.target.value)"
+      class="custom-select"
+      id="notificationSelect"
+      ngModel
+      name="notification"
+    >
+      <option value="web">Web notification</option>
+      <option value="email">Email</option>
+      <option value="API">API</option>
+    </select>
+
+    <div *ngIf="selectedNotification === 'email'">
+      <br />
+      <div class="alert alert-dark font-italic font-weight-light" role="alert">
+        You will be notifed on your registered email.
+      </div>
+    </div>
+
+    <div *ngIf="selectedNotification === 'API'">
+      <br />
+      <div class="alert alert-dark font-italic font-weight-light" role="alert">
+        See the settings for more information.
+      </div>
+    </div>
+
+    <div class="text-center" *ngIf="!isModify">
+      <br />
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </div>
+  </form>
+</div>
