@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
@@ -13,6 +15,8 @@ import { ReminderAddComponent } from './reminder/reminder-add/reminder-add.compo
 import { SettingsComponent } from './settings/settings.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { ReminderListItemComponent } from './reminder/reminder-list/reminder-list-item/reminder-list-item.component';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -24,14 +28,23 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
     ReminderAddComponent,
     SettingsComponent,
     LoadingSpinnerComponent,
+    ReminderListItemComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    NgbModule,
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true,
     },
+    NgbModule,
   ],
   bootstrap: [AppComponent],
 })
