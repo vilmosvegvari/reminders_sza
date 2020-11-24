@@ -9,10 +9,10 @@ import { User } from './user.model';
 
 export interface AuthDataResponse {
   email: string;
-  token: string;
-  registered?: boolean;
+  _token: string;
+  isAdmin: boolean;
   id: string;
-  errorMessage: string;
+  errorMessage?: string;
 }
 
 @Injectable({ providedIn: 'root' })
@@ -33,7 +33,12 @@ export class AuthService {
       .pipe(
         timeout(10000),
         tap((resData) => {
-          this.handleAuthentication(resData.email, resData.id, resData.token);
+          this.handleAuthentication(
+            resData.email,
+            resData.id,
+            resData._token,
+            resData.isAdmin
+          );
         })
       );
   }
@@ -43,13 +48,19 @@ export class AuthService {
       email: string;
       id: string;
       _token: string;
+      isAdmin: boolean;
     } = JSON.parse(localStorage.getItem('userData'));
 
     if (!userData) {
       return;
     }
 
-    const loadedUser = new User(userData.email, userData.id, userData._token);
+    const loadedUser = new User(
+      userData.email,
+      userData.id,
+      userData._token,
+      userData.isAdmin
+    );
     this.user.next(loadedUser);
   }
 
@@ -62,7 +73,12 @@ export class AuthService {
       .pipe(
         timeout(10000),
         tap((resData) => {
-          this.handleAuthentication(resData.email, resData.id, resData.token);
+          this.handleAuthentication(
+            resData.email,
+            resData.id,
+            resData._token,
+            resData.isAdmin
+          );
         })
       );
   }
@@ -73,8 +89,13 @@ export class AuthService {
     this.router.navigate(['/auth']);
   }
 
-  private handleAuthentication(email: string, id: string, token: string) {
-    const user = new User(email, id, token);
+  private handleAuthentication(
+    email: string,
+    id: string,
+    token: string,
+    isAdmin: boolean
+  ) {
+    const user = new User(email, id, token, isAdmin);
     this.user.next(user);
     localStorage.setItem('userData', JSON.stringify(user));
   }
