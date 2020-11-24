@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 import { Reminder } from './reminder.model';
 
@@ -23,7 +24,11 @@ export class ReminderService {
     this.allReminders
   );
 
-  constructor(private http: HttpClient) {}
+  baseURL: string;
+
+  constructor(private http: HttpClient) {
+    this.baseURL = environment.baseURL;
+  }
 
   search(text: string) {
     if (text) {
@@ -39,7 +44,7 @@ export class ReminderService {
 
   getReminders() {
     this.http
-      .get<Reminder[]>('http://localhost:3000/reminders', {})
+      .get<Reminder[]>(this.baseURL + 'reminders', {})
       .pipe(take(1))
       .subscribe((response) => {
         this.allReminders = response;
@@ -55,7 +60,7 @@ export class ReminderService {
     notification: string
   ) {
     this.http
-      .post<Reminder>('http://localhost:3000/reminders', {
+      .post<Reminder>(this.baseURL + 'reminders', {
         name: name,
         deadline: deadline,
         description: description,
@@ -70,7 +75,7 @@ export class ReminderService {
 
   updateReminder(reminder: Reminder) {
     this.http
-      .put<Reminder>(`http://localhost:3000/reminders/${reminder.id}`, {
+      .put<Reminder>(this.baseURL + `reminders/${reminder.id}`, {
         name: reminder.name,
         deadline: reminder.deadline,
         description: reminder.description,
@@ -85,7 +90,7 @@ export class ReminderService {
 
   deleteReminder(reminderid) {
     this.http
-      .delete<Reminder>(`http:/localhost:3000/reminders/${reminderid}`)
+      .delete<Reminder>(this.baseURL + `reminders/${reminderid}`)
       .pipe(take(1))
       .subscribe((response) => {
         this.getReminders();
