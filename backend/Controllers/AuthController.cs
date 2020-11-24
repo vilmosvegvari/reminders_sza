@@ -164,7 +164,7 @@ namespace backend.Controllers
                 {
                     userid = user.Id,
                     email = user.Email,
-                    token = new JwtSecurityTokenHandler().WriteToken(token),
+                    _token = new JwtSecurityTokenHandler().WriteToken(token),
                     isAdmin = isAdmin
                 });
             }
