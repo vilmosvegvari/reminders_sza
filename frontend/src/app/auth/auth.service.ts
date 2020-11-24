@@ -55,7 +55,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     return this.http
-      .post<AuthDataResponse>(this.urlStr + '/login', {
+      .post<AuthDataResponse>(this.urlStr + 'login', {
         email: email,
         password: password,
       })

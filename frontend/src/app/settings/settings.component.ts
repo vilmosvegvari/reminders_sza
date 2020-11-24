@@ -9,5 +9,8 @@ import { environment } from './../../environments/environment';
 export class SettingsComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  backendURL: string;
+  ngOnInit(): void {
+    this.backendURL = environment.baseURL;
+  }
 }
