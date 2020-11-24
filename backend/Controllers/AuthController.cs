@@ -1,5 +1,6 @@
 ﻿using backend.Authentication;
 using backend.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -8,17 +9,14 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Http.Cors;
 
 namespace backend.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [EnableCors(origins: "http://localhost:4200", headers: "", methods: "")]
     public class AuthController : ControllerBase
     {
         private readonly UserManager<User> usermanager;
@@ -30,7 +28,8 @@ namespace backend.Controllers
             this.rolemanager = rolemanager;
             this.config = config;
         }
-        
+
+        [EnableCors("CorsPolicy")]
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] AuthModel model)
@@ -77,7 +76,7 @@ namespace backend.Controllers
                 isAdmin = false
             });
         }
-
+        [EnableCors("CorsPolicy")]
         [HttpPost]
         [Route("registerAdmin")]
         public async Task<IActionResult> RegisterAdmin([FromBody] AuthModel model)
@@ -134,6 +133,7 @@ namespace backend.Controllers
             });
         }
 
+        [EnableCors("CorsPolicy")]
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] AuthModel model)

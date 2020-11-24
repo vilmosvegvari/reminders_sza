@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using backend.Models;
 using Microsoft.AspNetCore.Authorization;
 using backend.Authentication;
 using Microsoft.AspNetCore.Identity;
-using System.Web.Http.Cors;
+using Microsoft.AspNetCore.Cors;
 
 namespace backend.Controllers
 {
     [Authorize]
     [Route("[controller]")]
     [ApiController]
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class RemindersController : ControllerBase
     {
         private readonly ReminderContext _context;
@@ -29,6 +26,7 @@ namespace backend.Controllers
         }
 
         // GET: api/Reminders
+        [EnableCors("CorsPolicy")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Reminder>>> GetReminders()
         {
@@ -43,6 +41,7 @@ namespace backend.Controllers
         }
 
         // GET: api/Reminders/5
+        [EnableCors("CorsPolicy")]
         [HttpGet("{id}")]
         public async Task<ActionResult<Reminder>> GetReminder(long id)
         {
@@ -58,6 +57,7 @@ namespace backend.Controllers
 
         // PUT: api/Reminders/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [EnableCors("CorsPolicy")]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutReminder(long id, Reminder reminder)
         {
@@ -89,6 +89,7 @@ namespace backend.Controllers
 
         // POST: api/Reminders
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [EnableCors("CorsPolicy")]
         [HttpPost]
         public async Task<ActionResult<Reminder>> PostReminder(Reminder reminder)
         {
@@ -101,6 +102,7 @@ namespace backend.Controllers
         }
 
         // DELETE: api/Reminders/5
+        [EnableCors("CorsPolicy")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteReminder(long id)
         {
