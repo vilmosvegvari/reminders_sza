@@ -9,16 +9,7 @@ import { Reminder } from './reminder.model';
 @Injectable({ providedIn: 'root' })
 export class ReminderService {
   // this is for searching
-  allReminders: Reminder[] = [
-    {
-      id: '1',
-      name: 'Buy food',
-      deadline: new Date(),
-      creation: new Date(),
-      notification: 'email',
-      description: ' I need to buy food to not die.',
-    },
-  ];
+  allReminders: Reminder[] = [];
   //this is what we showing
   reminders: BehaviorSubject<Reminder[]> = new BehaviorSubject(
     this.allReminders
@@ -47,8 +38,28 @@ export class ReminderService {
       .get<Reminder[]>(this.baseURL + 'reminders', {})
       .pipe(take(1))
       .subscribe((response) => {
+        console.log(response);
         this.allReminders = response;
         this.reminders.next(this.allReminders);
+        this.allReminders
+          .filter((r) => r.notification === 'web')
+          .forEach((r) => {
+            console.log(new Date(r.deadline));
+            if (new Date() < new Date(r.deadline)) {
+              let milis = Math.abs(
+                new Date(r.deadline).getTime() - new Date().getTime()
+              );
+              console.log(milis);
+              setTimeout(() => {
+                var notification = new Notification('Reminders', {
+                  body: `Your reminder: ${r.name} is due now!`,
+                });
+                notification.onclick = () => {
+                  notification.close();
+                };
+              }, milis);
+            }
+          });
       });
   }
 
