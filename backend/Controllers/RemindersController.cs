@@ -9,12 +9,14 @@ using backend.Models;
 using Microsoft.AspNetCore.Authorization;
 using backend.Authentication;
 using Microsoft.AspNetCore.Identity;
+using System.Web.Http.Cors;
 
 namespace backend.Controllers
 {
     [Authorize]
     [Route("[controller]")]
     [ApiController]
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class RemindersController : ControllerBase
     {
         private readonly ReminderContext _context;

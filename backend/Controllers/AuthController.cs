@@ -12,11 +12,13 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http.Cors;
 
 namespace backend.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [EnableCors(origins: "http://localhost:4200", headers: "", methods: "")]
     public class AuthController : ControllerBase
     {
         private readonly UserManager<User> usermanager;

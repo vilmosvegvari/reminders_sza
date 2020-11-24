@@ -9,12 +9,14 @@ using backend.Models;
 using backend.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using System.Web.Http.Cors;
 
 namespace backend.Controllers
 {
     [Authorize(Roles = UserRoles.Admin)]
     [Route("[controller]")]
     [ApiController]
+    [EnableCors(origins: "http://localhost:4200", headers: "", methods: "")]
     public class UsersController : ControllerBase
     {
         private readonly UserDbContext _context;
