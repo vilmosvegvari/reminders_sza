@@ -1,4 +1,10 @@
-import { animate, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Reminder } from '../../reminder.model';
 
@@ -6,6 +12,26 @@ import { Reminder } from '../../reminder.model';
   selector: 'app-reminder-list-item',
   templateUrl: './reminder-list-item.component.html',
   styleUrls: ['./reminder-list-item.component.css'],
+  animations: [
+    trigger('smoothCollapse', [
+      state(
+        'initial',
+        style({
+          height: '0',
+          overflow: 'hidden',
+          opacity: '0',
+          visibility: 'hidden',
+        })
+      ),
+      state(
+        'final',
+        style({
+          overflow: 'hidden',
+        })
+      ),
+      transition('initial<=>final', animate('250ms')),
+    ]),
+  ],
 })
 export class ReminderListItemComponent {
   @Input() reminder;

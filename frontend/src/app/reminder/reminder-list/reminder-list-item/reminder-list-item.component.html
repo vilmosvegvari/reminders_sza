@@ -19,7 +19,7 @@
 </div>
 <div
   class="row justify-content-center text-white bg-secondary"
-  *ngIf="showingDescription"
+  [@smoothCollapse]="!showingDescription ? 'initial' : 'final'"
 >
   <div class="p-3">
     {{ reminder.description }}
