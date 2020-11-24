@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { BehaviorSubject } from 'rxjs';
 import { tap, timeout } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { User } from './user.model';
 
 export interface AuthDataResponse {
@@ -17,15 +18,15 @@ export interface AuthDataResponse {
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   user = new BehaviorSubject<User>(null);
-
-  constructor(private http: HttpClient, private router: Router) {}
-
-  urlStr = 'http://localhost:3000';
+  urlStr: string;
+  constructor(private http: HttpClient, private router: Router) {
+    this.urlStr = environment.baseURL + 'auth/';
+  }
 
   signup(email: string, password: string) {
     console.log(this.urlStr);
     return this.http
-      .post<AuthDataResponse>(this.urlStr + '/register', {
+      .post<AuthDataResponse>(this.urlStr + 'register', {
         email: email,
         password: password,
       })
