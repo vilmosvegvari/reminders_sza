@@ -1,7 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AuthService } from 'src/app/auth/auth.service';
-import { User } from 'src/app/auth/user.model';
+
 import { Reminder } from '../reminder.model';
 import { ReminderService } from '../reminder.service';
 
@@ -10,19 +9,44 @@ import { ReminderService } from '../reminder.service';
   templateUrl: './reminder-add.component.html',
   styleUrls: ['./reminder-add.component.css'],
 })
-export class ReminderAddComponent {
+export class ReminderAddComponent implements OnInit {
   @Input('modify') isModify = false;
 
   @Input('reminder') remindertoModify: Reminder;
+
+  @Output('savedModify') savedReminder = new EventEmitter<Reminder>();
+
+  formName: string;
+  formDeadline: Date;
+  formDescription: string;
+  formNotification: string;
 
   isLoading = false;
   invalidForm = false;
   selectedNotification: string;
 
-  constructor(
-    private reminderService: ReminderService,
-    private authService: AuthService
-  ) {}
+  constructor(private reminderService: ReminderService) {}
+  ngOnInit(): void {
+    if (this.remindertoModify) {
+      this.formName = this.remindertoModify.name;
+      this.formDeadline = this.remindertoModify.deadline;
+      this.formDescription = this.remindertoModify.description;
+      this.formNotification = this.remindertoModify.notification;
+    }
+  }
+
+  savedModify() {
+    let modified = new Reminder(
+      this.remindertoModify.id,
+      this.formName,
+      this.formDeadline,
+      new Date(),
+      this.formDescription,
+      this.formNotification
+    );
+    this.savedReminder.emit(modified);
+    console.log(this.formName);
+  }
 
   selectOption(value) {
     this.selectedNotification = value;
@@ -40,18 +64,13 @@ export class ReminderAddComponent {
     const description = form.value.description;
     const notification = form.value.notification;
     const creation = new Date();
-    let userid;
-    if (this.authService.user) {
-      userid = this.authService.user.value.id;
-    }
 
     this.reminderService.createReminder(
       name,
       deadline,
       creation,
       description,
-      notification,
-      userid
+      notification
     );
 
     form.reset();
