@@ -31,6 +31,17 @@ namespace backend
             // Entity framework for users
             services.AddDbContext<UserDbContext>(opt => opt.UseInMemoryDatabase("UserList"));
 
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings.
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequiredLength = 6;
+                options.Password.RequiredUniqueChars = 0;
+            });
+
             // For Identity
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<UserDbContext>()
@@ -66,9 +77,12 @@ namespace backend
                     {
                         builder.WithOrigins("http://localhost:4200")
                                             .AllowAnyHeader()
-                                            .AllowAnyMethod();
+                                            .AllowAnyMethod()
+                                            .AllowCredentials()
+                                            .SetIsOriginAllowed((host) => true);
+                     });
                     });
-            });
+
 
 
             // Entity framework for reminders
@@ -84,13 +98,13 @@ namespace backend
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors();
+//            app.UseHttpsRedirection();
 
-            app.UseHttpsRedirection();
+            app.UseAuthentication();
 
             app.UseRouting();
 
-            app.UseAuthentication();
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 
