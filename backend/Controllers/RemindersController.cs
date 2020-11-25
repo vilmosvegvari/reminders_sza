@@ -46,8 +46,9 @@ namespace backend.Controllers
         public async Task<ActionResult<Reminder>> GetReminder(long id)
         {
             var reminder = await _context.Reminders.FindAsync(id);
+            var user = await usermanager.FindByNameAsync(User.Identity.Name);
 
-            if (reminder == null)
+            if (reminder == null || reminder.UserId!= user.Id)
             {
                 return NotFound();
             }
@@ -59,15 +60,19 @@ namespace backend.Controllers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [EnableCors("CorsPolicy")]
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutReminder(long id, Reminder reminder)
+        public async Task<IActionResult> PutReminder(long id, UpdateReminderDto rmd)
         {
-            if (id != reminder.Id)
+            if (!ReminderExists(id))
             {
                 return BadRequest();
-            } 
-
+            }
+            var reminder = await _context.Reminders.FindAsync(id);
+            reminder.Name = rmd.Name;
+            reminder.Deadline = rmd.Deadline;
+            reminder.Description = rmd.Description;
+            reminder.Notification = rmd.Notification;
+            reminder.Creation = rmd.Creation;
             _context.Entry(reminder).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -106,14 +111,17 @@ namespace backend.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteReminder(long id)
         {
+            var user = await usermanager.FindByNameAsync(User.Identity.Name);
             var reminder = await _context.Reminders.FindAsync(id);
             if (reminder == null)
             {
                 return NotFound();
             }
-
-            _context.Reminders.Remove(reminder);
-            await _context.SaveChangesAsync();
+            if (reminder.UserId == user.Id)
+            {
+                _context.Reminders.Remove(reminder);
+                await _context.SaveChangesAsync();
+            }
 
             return NoContent();
         }
