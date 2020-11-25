@@ -38,24 +38,11 @@ export class ReminderListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.reminderSubscrtiption = this.reminderService.reminders
-      .pipe(
-        // move map to service when backkend is done
-        map((reminders) => {
-          return reminders.map((reminder) => {
-            return {
-              name: reminder.name,
-              deadline: reminder.deadline.toLocaleString(),
-              creation: reminder.creation.toLocaleString(),
-              notification: reminder.notification,
-              description: reminder.description,
-            };
-          });
-        })
-      )
-      .subscribe((reminders) => {
+    this.reminderSubscrtiption = this.reminderService.reminders.subscribe(
+      (reminders) => {
         this.reminders = reminders;
-      });
+      }
+    );
 
     this.reminderService.getReminders();
   }
