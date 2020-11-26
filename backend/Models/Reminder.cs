@@ -14,6 +14,7 @@ namespace backend.Models
         public DateTime Creation { get; set; }
         public string Description { get; set; }
         public string Notification { get; set; }
+        public bool NotificationSent { get; set; }
     }
 
 }

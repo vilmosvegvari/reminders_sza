@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using backend.Email;
+using System.Threading;
 
 namespace backend
 {
@@ -27,6 +29,8 @@ namespace backend
         {
 
             services.AddControllers();
+            services.AddTransient < EmailReciever >();
+            services.AddTransient < EmailSender >();
 
             // Entity framework for users
             services.AddDbContext<UserDbContext>(opt => opt.UseInMemoryDatabase("UserList"));
@@ -98,7 +102,14 @@ namespace backend
                 app.UseDeveloperExceptionPage();
             }
 
-//            app.UseHttpsRedirection();
+
+            var EmailSenderThread = new Thread(app.ApplicationServices.GetService<EmailSender>().SendReminderAsync);
+            var EmailRecieverThread = new Thread(app.ApplicationServices.GetService<EmailReciever>().ProcessMailsAsync);
+            EmailSenderThread.Start();
+            EmailRecieverThread.Start();
+
+            //            app.UseHttpsRedirection();
+
 
             app.UseAuthentication();
 

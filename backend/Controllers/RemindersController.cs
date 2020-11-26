@@ -72,6 +72,7 @@ namespace backend.Controllers
             reminder.Description = rmd.Description;
             reminder.Notification = rmd.Notification;
             reminder.Creation = rmd.Creation;
+            reminder.NotificationSent = false;
             _context.Entry(reminder).State = EntityState.Modified;
             try
             {
@@ -100,6 +101,7 @@ namespace backend.Controllers
         {
             var user = await usermanager.FindByNameAsync(User.Identity.Name);
             reminder.UserId = user.Id;
+            reminder.NotificationSent = false;
             _context.Reminders.Add(reminder);
             await _context.SaveChangesAsync();
 

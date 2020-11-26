@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-
+using System.Threading;
 
 namespace backend
 {
@@ -16,6 +16,8 @@ namespace backend
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseDefaultServiceProvider(options =>
+                    options.ValidateScopes = false);
                 });
     }
 }
