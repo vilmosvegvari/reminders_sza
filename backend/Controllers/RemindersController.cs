@@ -40,6 +40,24 @@ namespace backend.Controllers
             return reminderlist;
         }
 
+        [EnableCors("CorsPolicy")]
+        [HttpGet("web")]
+        public async Task<ActionResult<IEnumerable<Reminder>>> GetWebReminders()
+        {
+            var user = await usermanager.FindByNameAsync(User.Identity.Name);
+
+            if (user == null)
+                return BadRequest();
+
+            var reminderlist = new List<Reminder>();
+            foreach (Reminder rmd in _context.Reminders)
+            {
+                if (rmd.UserId == user.Id && rmd.Notification == "web" && !rmd.NotificationSent)
+                    reminderlist.Add(rmd);
+            }
+            return reminderlist;
+        }
+
         // GET: api/Reminders/5
         [EnableCors("CorsPolicy")]
         [HttpGet("{id}")]
@@ -48,7 +66,10 @@ namespace backend.Controllers
             var reminder = await _context.Reminders.FindAsync(id);
             var user = await usermanager.FindByNameAsync(User.Identity.Name);
 
-            if (reminder == null || reminder.UserId!= user.Id)
+            if (user == null || reminder.UserId != user.Id)
+                return BadRequest();
+
+            if (reminder == null)
             {
                 return NotFound();
             }
@@ -100,12 +121,16 @@ namespace backend.Controllers
         public async Task<ActionResult<Reminder>> PostReminder(Reminder reminder)
         {
             var user = await usermanager.FindByNameAsync(User.Identity.Name);
-            reminder.UserId = user.Id;
-            reminder.NotificationSent = false;
-            _context.Reminders.Add(reminder);
-            await _context.SaveChangesAsync();
+            if (user != null)
+            {
+                reminder.UserId = user.Id;
+                reminder.NotificationSent = false;
+                _context.Reminders.Add(reminder);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetReminder), new { id = reminder.Id }, reminder);
+                return CreatedAtAction(nameof(GetReminder), new { id = reminder.Id }, reminder);
+            }
+            return BadRequest();
         }
 
         // DELETE: api/Reminders/5
@@ -115,7 +140,7 @@ namespace backend.Controllers
         {
             var user = await usermanager.FindByNameAsync(User.Identity.Name);
             var reminder = await _context.Reminders.FindAsync(id);
-            if (reminder == null)
+            if (reminder == null || user == null)
             {
                 return NotFound();
             }
