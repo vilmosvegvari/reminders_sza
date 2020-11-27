@@ -5,6 +5,9 @@ export class Reminder {
     public deadline: Date,
     public creation: Date,
     public description: string,
-    public notification: string
+    public notification: string,
+    public callbackUrl: string,
+    public deadlineString?: string,
+    public creationString?: string
   ) {}
 }

@@ -69,8 +69,15 @@
 
     <div *ngIf="selectedNotification === 'API'">
       <br />
-      <div class="alert alert-dark font-italic font-weight-light" role="alert">
-        See the settings for more information.
+      <div class="form-group">
+        <label for="callbackUrl">API Callback URL</label>
+        <input
+          type="url"
+          class="form-control"
+          id="callbackUrl"
+          [(ngModel)]="formCallbackUrl"
+          name="deadline"
+        />
       </div>
     </div>
 

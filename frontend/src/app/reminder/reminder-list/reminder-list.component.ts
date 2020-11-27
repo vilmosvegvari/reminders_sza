@@ -30,10 +30,8 @@ export class ReminderListComponent implements OnInit, OnDestroy {
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then(
-        (result) => {},
-        (reason) => {
-          console.log(reason);
-        }
+        () => {},
+        () => {}
       );
   }
 
@@ -52,7 +50,6 @@ export class ReminderListComponent implements OnInit, OnDestroy {
   }
 
   onModifySaved(newReminder) {
-    console.log('elmentett új', newReminder);
     this.reminderService.updateReminder(newReminder);
   }
 

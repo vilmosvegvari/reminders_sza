@@ -20,6 +20,7 @@ export class ReminderAddComponent implements OnInit {
   formDeadline: Date;
   formDescription: string;
   formNotification: string;
+  formCallbackUrl: string;
 
   isLoading = false;
   invalidForm = false;
@@ -32,6 +33,7 @@ export class ReminderAddComponent implements OnInit {
       this.formDeadline = this.remindertoModify.deadline;
       this.formDescription = this.remindertoModify.description;
       this.formNotification = this.remindertoModify.notification;
+      this.formCallbackUrl = this.remindertoModify.callbackUrl;
     }
   }
 
@@ -42,7 +44,8 @@ export class ReminderAddComponent implements OnInit {
       this.formDeadline,
       new Date(),
       this.formDescription,
-      this.formNotification
+      this.formNotification,
+      this.formNotification === 'API' ? this.formCallbackUrl : ''
     );
     this.savedReminder.emit(modified);
     console.log(this.formName);
@@ -59,19 +62,17 @@ export class ReminderAddComponent implements OnInit {
     }
     this.invalidForm = false;
 
-    const name = form.value.name;
-    const deadline = form.value.deadline;
-    const description = form.value.description;
-    const notification = form.value.notification;
-    const creation = new Date();
-
-    this.reminderService.createReminder(
-      name,
-      deadline,
-      creation,
-      description,
-      notification
+    console.log(this.formNotification, this.formCallbackUrl);
+    let newReminder = new Reminder(
+      '',
+      this.formName,
+      this.formDeadline,
+      new Date(),
+      this.formDescription,
+      this.formNotification,
+      this.formNotification === 'API' ? this.formCallbackUrl : ''
     );
+    this.reminderService.createReminder(newReminder);
 
     form.reset();
   }

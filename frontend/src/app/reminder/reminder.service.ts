@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 import { Reminder } from './reminder.model';
@@ -36,7 +36,22 @@ export class ReminderService {
   getReminders() {
     this.http
       .get<Reminder[]>(this.baseURL + 'reminders', {})
-      .pipe(take(1))
+      .pipe(
+        map((reminders) => {
+          return reminders.map((reminder) => {
+            return {
+              ...reminder,
+              deadlineString: new Date(reminder.deadline)
+                .toLocaleString()
+                .slice(0, -3),
+              creationString: new Date(reminder.creation)
+                .toLocaleString()
+                .slice(0, -3),
+            };
+          });
+        }),
+        take(1)
+      )
       .subscribe((response) => {
         console.log(response);
         this.allReminders = response;
@@ -63,20 +78,16 @@ export class ReminderService {
       });
   }
 
-  createReminder(
-    name: string,
-    deadline: Date,
-    creation: Date,
-    description: string,
-    notification: string
-  ) {
+  createReminder(reminder: Reminder) {
     this.http
       .post<Reminder>(this.baseURL + 'reminders', {
-        name: name,
-        deadline: deadline,
-        description: description,
-        notification: notification,
-        creation: creation,
+        name: reminder.name,
+        deadline: reminder.deadline,
+        description: reminder.description,
+        notification: reminder.notification,
+        creation: reminder.creation,
+        callbackUrl:
+          reminder.notification === 'API' ? reminder.callbackUrl : '',
       })
       .pipe(take(1))
       .subscribe((response) => {
@@ -92,6 +103,8 @@ export class ReminderService {
         description: reminder.description,
         notification: reminder.notification,
         creation: reminder.creation,
+        callbackUrl:
+          reminder.notification === 'API' ? reminder.callbackUrl : '',
       })
       .pipe(take(1))
       .subscribe((response) => {
