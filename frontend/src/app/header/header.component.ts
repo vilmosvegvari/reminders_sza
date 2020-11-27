@@ -12,6 +12,7 @@ import { ReminderService } from '../reminder/reminder.service';
 })
 export class HeaderComponent implements OnInit {
   isAuthenticated = false;
+  isAdmin = false;
   private userSub: Subscription;
 
   constructor(
@@ -23,6 +24,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.userSub = this.authService.user.subscribe((user) => {
       this.isAuthenticated = !!user;
+      if (this.isAuthenticated) {
+        this.isAdmin = user.isAdmin;
+      } else {
+        this.isAdmin = false;
+      }
     });
   }
   ngOnDestroy(): void {

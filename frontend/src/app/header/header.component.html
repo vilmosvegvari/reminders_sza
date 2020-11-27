@@ -28,6 +28,16 @@
           >Settings</a
         >
       </li>
+
+      <li class="nav-item" *ngIf="isAdmin">
+        <a
+          class="nav-link"
+          routerLink="/admin"
+          routerLinkActive="active"
+          [ngClass]="{ hidden: !isAdmin }"
+          >Admin</a
+        >
+      </li>
     </ul>
 
     <div class="nav-item navbar-nav">

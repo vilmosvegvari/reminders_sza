@@ -24,7 +24,6 @@ export class AuthService {
   }
 
   signup(email: string, password: string) {
-    console.log(this.urlStr);
     return this.http
       .post<AuthDataResponse>(this.urlStr + 'register', {
         email: email,
