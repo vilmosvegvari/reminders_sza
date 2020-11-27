@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { environment } from './../../environments/environment';
 
@@ -7,14 +7,12 @@ import { environment } from './../../environments/environment';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css'],
 })
-export class SettingsComponent implements OnInit {
-  constructor(private authService: AuthService) {}
-
-  backendURL: string;
-  token: string;
-
-  ngOnInit(): void {
+export class SettingsComponent {
+  constructor(private authService: AuthService) {
     this.backendURL = environment.baseURL;
     this.token = this.authService.user.value.token;
   }
+
+  backendURL: string;
+  token: string;
 }
