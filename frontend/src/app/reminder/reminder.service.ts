@@ -56,25 +56,39 @@ export class ReminderService {
         console.log(response);
         this.allReminders = response;
         this.reminders.next(this.allReminders);
-        this.allReminders
-          .filter((r) => r.notification === 'web')
-          .forEach((r) => {
-            console.log(new Date(r.deadline));
-            if (new Date() < new Date(r.deadline)) {
-              let milis = Math.abs(
-                new Date(r.deadline).getTime() - new Date().getTime()
-              );
-              console.log(milis);
-              setTimeout(() => {
-                var notification = new Notification('Reminders', {
-                  body: `Your reminder: ${r.name} is due now!`,
-                });
-                notification.onclick = () => {
-                  notification.close();
-                };
-              }, milis);
-            }
+        this.getNotifications();
+      });
+  }
+
+  notifications = [];
+  getNotifications() {
+    this.http
+      .get<Reminder[]>(this.baseURL + 'reminders/web', {})
+      .pipe(take(1))
+      .subscribe((response) => {
+        console.log(response);
+        if (this.notifications.length) {
+          this.notifications.forEach((n) => {
+            clearTimeout(n);
           });
+        }
+        response.forEach((r) => {
+          if (new Date() < new Date(r.deadline)) {
+            let milis = Math.abs(
+              new Date(r.deadline).getTime() - new Date().getTime()
+            );
+            console.log(milis);
+            let notificationTimeout = setTimeout(() => {
+              var notification = new Notification('Reminders', {
+                body: `Your reminder: ${r.name} is due now!`,
+              });
+              notification.onclick = () => {
+                notification.close();
+              };
+            }, milis);
+            this.notifications.push(notificationTimeout);
+          }
+        });
       });
   }
 
