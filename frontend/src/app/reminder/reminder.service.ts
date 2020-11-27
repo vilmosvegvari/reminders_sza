@@ -10,7 +10,7 @@ import { Reminder } from './reminder.model';
 export class ReminderService {
   // this is for searching
   allReminders: Reminder[] = [];
-  //this is what we showing
+  // this is what we showing
   reminders: BehaviorSubject<Reminder[]> = new BehaviorSubject(
     this.allReminders
   );
