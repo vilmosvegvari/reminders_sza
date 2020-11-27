@@ -111,7 +111,7 @@ namespace backend.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok();
         }
 
         // POST: api/Reminders

@@ -30,7 +30,7 @@ namespace backend
 
             services.AddControllers();
             services.AddTransient < EmailReciever >();
-            services.AddTransient < EmailSender >();
+            services.AddTransient < NotificationSender >();
 
             // Entity framework for users
             services.AddDbContext<UserDbContext>(opt => opt.UseInMemoryDatabase("UserList"));
@@ -103,7 +103,7 @@ namespace backend
             }
 
 
-            var EmailSenderThread = new Thread(app.ApplicationServices.GetService<EmailSender>().SendReminderAsync);
+            var EmailSenderThread = new Thread(app.ApplicationServices.GetService<NotificationSender>().SendReminderAsync);
             var EmailRecieverThread = new Thread(app.ApplicationServices.GetService<EmailReciever>().ProcessMailsAsync);
             EmailSenderThread.Start();
             EmailRecieverThread.Start();

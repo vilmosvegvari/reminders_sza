@@ -14,9 +14,9 @@ namespace backend.Email
     {
         private readonly ReminderContext _context;
         private readonly UserManager<User> usermanager;
-        private readonly EmailSender sender;
-        ImapClient imap;
-        public EmailReciever(ReminderContext context, UserManager<User> usermanager, EmailSender sender)
+        private readonly NotificationSender sender;
+        private  ImapClient imap;
+        public EmailReciever(ReminderContext context, UserManager<User> usermanager, NotificationSender sender)
         {
             _context = context;
             this.usermanager = usermanager;
@@ -66,7 +66,14 @@ namespace backend.Email
                 reminder.Name = body[0];
                 reminder.Deadline = DateTime.Parse(body[1]);
                 reminder.Notification = body[2];
-                reminder.Description = body[3];
+                if (body[2] == "api")
+                {
+                    body = body[3].Split("\r\n", 2);
+                    reminder.CallbackUrl = body[0];
+                    reminder.Description = body[1];
+                }
+                else
+                    reminder.Description = body[3];
                 reminder.NotificationSent = false;
 
                 _context.Reminders.Add(reminder);
@@ -89,7 +96,7 @@ namespace backend.Email
             {
                 Text = "There is no user registered with this email address. \r\n Please register before using the services of the application."
             };
-            sender.SendMessage(message);
+            sender.SendEmail(message);
         }
 
         public void WrongEmailFormat(string address)
@@ -102,7 +109,7 @@ namespace backend.Email
             {
                 Text = "We could not process the sent reminder, because the format was not appropriate.\r\n Please read the documentation about how to add new reminder with email."
             };
-            sender.SendMessage(message);
+            sender.SendEmail(message);
         }
     }
 }
