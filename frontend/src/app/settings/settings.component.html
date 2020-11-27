@@ -63,7 +63,8 @@
       </p>
       <hr />
       The server's base URL: <code>{{ backendURL }}</code>
-      <table class="table table-sm">
+      <hr />
+      <table class="table table-sm table-hover">
         <thead>
           <tr>
             <th scope="col">HTTP</th>
@@ -74,13 +75,18 @@
         <tbody>
           <tr>
             <td>GET</td>
-            <td>/reminders/1</td>
-            <td>Get With ID 1.</td>
+            <td>/reminders</td>
+            <td>Gets All.</td>
           </tr>
           <tr>
             <td>POST</td>
             <td>/reminders</td>
             <td>Creates a new ID.</td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/reminders/1</td>
+            <td>Gets With ID 1.</td>
           </tr>
           <tr>
             <td>PUT</td>
