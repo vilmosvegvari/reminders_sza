@@ -41,7 +41,7 @@ export class ReminderAddComponent implements OnInit {
     let modified = new Reminder(
       this.remindertoModify.id,
       this.formName,
-      this.formDeadline,
+      new Date(this.formDeadline),
       new Date(),
       this.formDescription,
       this.formNotification,
@@ -58,6 +58,7 @@ export class ReminderAddComponent implements OnInit {
   onSubmit(form: NgForm) {
     if (!form.valid) {
       this.invalidForm = true;
+      form.value;
       return;
     }
     this.invalidForm = false;
@@ -66,7 +67,7 @@ export class ReminderAddComponent implements OnInit {
     let newReminder = new Reminder(
       '',
       this.formName,
-      this.formDeadline,
+      new Date(this.formDeadline),
       new Date(),
       this.formDescription,
       this.formNotification,
@@ -75,5 +76,6 @@ export class ReminderAddComponent implements OnInit {
     this.reminderService.createReminder(newReminder);
 
     form.reset();
+    this.selectedNotification = null;
   }
 }

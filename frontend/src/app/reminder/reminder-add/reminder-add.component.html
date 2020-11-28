@@ -21,8 +21,13 @@
         placeholder="Reminder name"
         name="name"
         required
+        #name="ngModel"
       />
-      <div class="text-danger" *ngIf="invalidForm">Please choose a name.</div>
+      <div *ngIf="invalidForm && name.invalid">
+        <div class="text-danger" *ngIf="name.errors.required">
+          Please choose a name.
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="deadlineInput">Deadline</label>
@@ -32,9 +37,19 @@
         id="deadlineInput"
         [(ngModel)]="formDeadline"
         name="deadline"
+        required
+        #deadline="ngModel"
       />
     </div>
 
+    <div *ngIf="invalidForm && deadline.invalid">
+      <div
+        class="text-danger"
+        *ngIf="deadline.errors.required || deadline.dirty"
+      >
+        Please choose a deadline.
+      </div>
+    </div>
     <div class="form-group">
       <label for="descriptionInput">Description</label>
       <textarea
@@ -54,11 +69,19 @@
       id="notificationSelect"
       [(ngModel)]="formNotification"
       name="notification"
+      required
+      #notification="ngModel"
     >
-      <option value="web">Web notification</option>
+      <option value="web">Web</option>
       <option value="email">Email</option>
       <option value="API">API</option>
     </select>
+
+    <div *ngIf="invalidForm && notification.invalid">
+      <div class="text-danger" *ngIf="notification.errors.required">
+        Please choose a notification mode.
+      </div>
+    </div>
 
     <div *ngIf="selectedNotification === 'email'">
       <br />

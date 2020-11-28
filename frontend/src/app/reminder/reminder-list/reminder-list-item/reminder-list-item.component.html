@@ -30,8 +30,10 @@
   [@smoothCollapse]="!showingDescription ? 'initial' : 'final'"
 >
   <div class="p-3">
-    {{ reminder.description }}
-    <hr />
+    <div *ngIf="reminder.description">
+      {{ reminder.description }}
+      <hr />
+    </div>
     <small>Created at {{ reminder.creationString }} </small>
 
     <div class="d-block d-sm-block d-md-none font-italic">
