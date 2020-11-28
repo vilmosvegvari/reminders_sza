@@ -23,8 +23,11 @@ export class ReminderService {
 
   search(text: string) {
     if (text) {
-      let newReminders = this.allReminders.filter((reminder) =>
-        reminder.name.toUpperCase().includes(text.toUpperCase())
+      let newReminders = this.allReminders.filter(
+        (reminder) =>
+          reminder.name.toUpperCase().includes(text.toUpperCase()) ||
+          reminder.notification.toUpperCase().includes(text.toUpperCase()) ||
+          reminder.deadlineString.toUpperCase().includes(text.toUpperCase())
       );
 
       this.reminders.next(newReminders);
