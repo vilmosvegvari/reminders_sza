@@ -1,0 +1,57 @@
+<div class="row card-body bg-dark text-white" (click)="onReminderClicked()">
+  <div class="col-md-4 col-sm-5 col-4">{{ reminder.name }}</div>
+  <div class="col-md-3 col-sm-4 col-3">
+    <small>{{ reminder.deadlineString }}</small>
+  </div>
+  <div
+    class="col-md-2 col-sm-3 col-5"
+    placement="top"
+    ngbTooltip="{{ reminder.callbackUrl }}"
+  >
+    {{ reminder.notification }}
+  </div>
+  <div class="col-md-3 d-none d-sm-none d-md-block">
+    <button
+      class="btn btn-success btn-sm"
+      (click)="onModify(); $event.stopPropagation()"
+    >
+      Modify
+    </button>
+    <button
+      class="btn btn-danger btn-sm"
+      (click)="onDelete(); $event.stopPropagation()"
+    >
+      Delete
+    </button>
+  </div>
+</div>
+<div
+  class="row justify-content-center text-white bg-secondary"
+  [@smoothCollapse]="!showingDescription ? 'initial' : 'final'"
+>
+  <div class="p-3">
+    <div *ngIf="reminder.description">
+      {{ reminder.description }}
+      <hr />
+    </div>
+    <small>Created at {{ reminder.creationString }} </small>
+
+    <div class="d-block d-sm-block d-md-none font-italic">
+      <hr />
+      <button
+        class="btn btn-success btn-sm"
+        (click)="onModify(); $event.stopPropagation()"
+      >
+        Modify
+      </button>
+      <button
+        class="btn btn-danger btn-sm"
+        (click)="onDelete(); $event.stopPropagation()"
+      >
+        Delete
+      </button>
+      <hr *ngIf="reminder.callbackUrl" />
+      {{ reminder.callbackUrl }}
+    </div>
+  </div>
+</div>

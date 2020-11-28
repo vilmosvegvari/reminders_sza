@@ -1,0 +1,105 @@
+<div class="contanier-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <h5 class="text-center">Add reminders via email</h5>
+      <p>
+        Service's email address:
+        <code>reminders.api2020@gmail.com</code>
+      </p>
+      <hr />
+      <p>
+        The email's syntax should be like this:
+        <br />
+        <strong>1. line:</strong> Reminder's name <br />
+        <strong>2. line:</strong> Reminder's deadline as “yyyy/mm/dd hh:mm”<br />
+        <strong>3. line:</strong> Reminder's notification mode
+        (web/email/api)<br />
+        <strong>4. line:</strong> Only if you Choosed "API" callback
+        notification: Reminder's Callback URL<br />
+        <strong>5+ lines:</strong> Reminder's description
+      </p>
+      <hr />
+      <p>
+        If there is any error in the sent email, the service will answer in a
+        descriptive email to the sender mail. <br />
+        If the email adding was successfull then you should see it in the main
+        page.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <h5 class="text-center">Add reminders via API</h5>
+      <p class="text-center">
+        You can easily add, modify, delete using the API. <br />
+        <span class="text-warning"
+          >Warning! Do not share your token with anyone!</span
+        >
+      </p>
+      <div class="text-center">
+        <button
+          type="button"
+          class="btn btn-dark"
+          data-toggle="collapse"
+          data-target="#collapseExample"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          Show Token
+        </button>
+        <div class="collapse" id="collapseExample">
+          <div class="card">
+            <div class="card-body">
+              Your token: <code>{{ token }}</code>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <p>
+        You need to be authorized before you can call on any URL. You can
+        authorize yourself by adding your token to the your request's header
+        like this:
+        <br />
+        Header: ( Authorization: "Bearer *token*" )
+      </p>
+      <hr />
+      The server's base URL: <code>{{ backendURL }}</code>
+      <hr />
+      <table class="table table-sm table-hover">
+        <thead>
+          <tr>
+            <th scope="col">HTTP</th>
+            <th scope="col">URL</th>
+            <th scope="col">Last</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GET</td>
+            <td>/reminders</td>
+            <td>Gets All.</td>
+          </tr>
+          <tr>
+            <td>POST</td>
+            <td>/reminders</td>
+            <td>Creates a new ID.</td>
+          </tr>
+          <tr>
+            <td>GET</td>
+            <td>/reminders/1</td>
+            <td>Gets With ID 1.</td>
+          </tr>
+          <tr>
+            <td>PUT</td>
+            <td>/reminders/1</td>
+            <td>Updates with ID 1.</td>
+          </tr>
+          <tr>
+            <td>DELETE</td>
+            <td>/reminders/1</td>
+            <td>Deletes with ID 1.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

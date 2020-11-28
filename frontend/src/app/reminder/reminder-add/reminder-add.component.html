@@ -1,0 +1,118 @@
+<h5 class="text-center" *ngIf="!isModify">Add a new Reminder</h5>
+<br />
+
+<div class="justify-content-center">
+  <div *ngIf="isLoading" style="text-align: center">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+
+  <form
+    #reminderForm="ngForm"
+    (ngSubmit)="onSubmit(reminderForm)"
+    *ngIf="!isLoading"
+  >
+    <div class="form-group">
+      <label for="nameInput">Reminder name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nameInput"
+        [(ngModel)]="formName"
+        placeholder="Reminder name"
+        name="name"
+        required
+        #name="ngModel"
+      />
+      <div *ngIf="invalidForm && name.invalid">
+        <div class="text-danger" *ngIf="name.errors.required">
+          Please choose a name.
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="deadlineInput">Deadline</label>
+      <input
+        type="datetime-local"
+        class="form-control"
+        id="deadlineInput"
+        [(ngModel)]="formDeadline"
+        name="deadline"
+        required
+        #deadline="ngModel"
+      />
+    </div>
+
+    <div *ngIf="invalidForm && deadline.invalid">
+      <div
+        class="text-danger"
+        *ngIf="deadline.errors.required || deadline.dirty"
+      >
+        Please choose a deadline.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="descriptionInput">Description</label>
+      <textarea
+        class="form-control"
+        id="descriptionInput"
+        placeholder="Description"
+        [(ngModel)]="formDescription"
+        rows="4"
+        name="description"
+      ></textarea>
+    </div>
+
+    <label for="notificationSelect">Select Notifcation Mode</label>
+    <select
+      (change)="selectOption($event.target.value)"
+      class="custom-select"
+      id="notificationSelect"
+      [(ngModel)]="formNotification"
+      name="notification"
+      required
+      #notification="ngModel"
+    >
+      <option value="web">Web</option>
+      <option value="email">Email</option>
+      <option value="API">API</option>
+    </select>
+
+    <div *ngIf="invalidForm && notification.invalid">
+      <div class="text-danger" *ngIf="notification.errors.required">
+        Please choose a notification mode.
+      </div>
+    </div>
+
+    <div *ngIf="selectedNotification === 'email'">
+      <br />
+      <div class="alert alert-dark font-italic font-weight-light" role="alert">
+        You will be notifed on your registered email.
+      </div>
+    </div>
+
+    <div *ngIf="selectedNotification === 'API'">
+      <br />
+      <div class="form-group">
+        <label for="callbackUrl">API Callback URL</label>
+        <input
+          type="url"
+          class="form-control"
+          id="callbackUrl"
+          [(ngModel)]="formCallbackUrl"
+          name="deadline"
+        />
+      </div>
+    </div>
+
+    <div class="text-center" *ngIf="!isModify">
+      <br />
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </div>
+  </form>
+
+  <div class="modal-footer" *ngIf="isModify">
+    <button type="button" class="btn btn-dark" (click)="savedModify()">
+      Save
+    </button>
+  </div>
+</div>
