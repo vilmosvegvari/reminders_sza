@@ -17,7 +17,7 @@ export class ReminderAddComponent implements OnInit {
   @Output('savedModify') savedReminder = new EventEmitter<Reminder>();
 
   formName: string;
-  formDeadline: Date;
+  formDeadline: string;
   formDescription: string;
   formNotification: string;
   formCallbackUrl: string;
@@ -30,7 +30,9 @@ export class ReminderAddComponent implements OnInit {
   ngOnInit(): void {
     if (this.remindertoModify) {
       this.formName = this.remindertoModify.name;
-      this.formDeadline = this.remindertoModify.deadline;
+      this.formDeadline = new Date(this.remindertoModify.deadline)
+        .toISOString()
+        .slice(0, -1);
       this.formDescription = this.remindertoModify.description;
       this.formNotification = this.remindertoModify.notification;
       this.formCallbackUrl = this.remindertoModify.callbackUrl;
@@ -48,7 +50,6 @@ export class ReminderAddComponent implements OnInit {
       this.formNotification === 'API' ? this.formCallbackUrl : ''
     );
     this.savedReminder.emit(modified);
-    console.log(this.formName);
   }
 
   selectOption(value) {
@@ -63,7 +64,6 @@ export class ReminderAddComponent implements OnInit {
     }
     this.invalidForm = false;
 
-    console.log(this.formNotification, this.formCallbackUrl);
     let newReminder = new Reminder(
       '',
       this.formName,

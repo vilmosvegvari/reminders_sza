@@ -56,7 +56,6 @@ export class ReminderService {
         take(1)
       )
       .subscribe((response) => {
-        console.log(response);
         this.allReminders = response;
         this.reminders.next(this.allReminders);
         this.getNotifications();
@@ -69,7 +68,6 @@ export class ReminderService {
       .get<Reminder[]>(this.baseURL + 'reminders/web', {})
       .pipe(take(1))
       .subscribe((response) => {
-        console.log(response);
         if (this.notifications.length) {
           this.notifications.forEach((n) => {
             clearTimeout(n);
@@ -80,7 +78,6 @@ export class ReminderService {
             let milis = Math.abs(
               new Date(r.deadline).getTime() - new Date().getTime()
             );
-            console.log(milis);
             let notificationTimeout = setTimeout(() => {
               var notification = new Notification('Reminders', {
                 body: `Your reminder: ${r.name} is due now!`,

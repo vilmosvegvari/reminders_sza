@@ -15,7 +15,6 @@
     (onModify)="onModifyItem($event); open(content)"
   ></app-reminder-list-item>
 
-  <!-- Button trigger modal -->
   <ng-template #content let-modal>
     <div class="modal-header bg-dark text-white">
       <h4 class="modal-title" id="modal-basic-title">Modify Reminder</h4>
@@ -37,7 +36,6 @@
     </div>
   </ng-template>
 
-  <!-- Modal -->
   <div
     class="modal fade"
     id="exampleModal"

@@ -39,7 +39,7 @@ export class AuthComponent {
     }
 
     authObserver.subscribe(
-      (response) => {
+      () => {
         this.isLoading = false;
         this.router.navigate(['/reminders']);
       },
@@ -47,8 +47,12 @@ export class AuthComponent {
         console.log(errorMessage);
         if (errorMessage.name === 'TimeoutError') {
           this.error = errorMessage.message;
+        }
+        if (errorMessage.status === 401) {
+          this.error = 'Error - Wrong credentatials!';
         } else {
-          this.error = errorMessage.status + ' - ' + errorMessage.statusText;
+          this.error =
+            errorMessage.error.status + ' - ' + errorMessage.error.message;
         }
         this.isLoading = false;
       }
