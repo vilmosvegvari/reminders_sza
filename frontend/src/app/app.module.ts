@@ -16,7 +16,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { LoadingSpinnerComponent } from './shared/loading-spinner.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { ReminderListItemComponent } from './reminder/reminder-list/reminder-list-item/reminder-list-item.component';
-import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
