@@ -66,12 +66,6 @@
 
 
 
-    <p class="comment">
-        <h3>Implements</h3>
-    </p>
-    <p class="comment">
-                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-    </p>
 
 
 <section>
@@ -121,21 +115,24 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
-
                 <tr>
                     <td class="col-md-4">
-                        <h6><b>Methods</b></h6>
+                        <h6><b>Properties</b></h6>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngOnInit">ngOnInit</a>
+                                <a href="#backendURL">backendURL</a>
+                            </li>
+                            <li>
+                                <a href="#token">token</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
+
 
 
 
@@ -151,15 +148,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(authService: <a href="../injectables/AuthService.html">AuthService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/settings/settings.component.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/settings/settings.component.ts:10</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -168,70 +195,89 @@
 
 
 
+
     <section>
     
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="ngOnInit"></a>
-                    <span class="name">
-                        <b>
-                            ngOnInit
-                        </b>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>ngOnInit()</code>
-                </td>
-            </tr>
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="backendURL"></a>
+                        <span class="name">
+                            <b>
+                            backendURL</b>
+                            <a href="#backendURL"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/settings/settings.component.ts:16</a></div>
+                            </td>
+                        </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/settings/settings.component.ts:12</a></div>
-                </td>
-            </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="token"></a>
+                        <span class="name">
+                            <b>
+                            token</b>
+                            <a href="#token"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/settings/settings.component.ts:17</a></div>
+                            </td>
+                        </tr>
 
 
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 </section>
 
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { AuthService } from &#x27;../auth/auth.service&#x27;;
+import { environment } from &#x27;./../../environments/environment&#x27;;
 
 @Component({
   selector: &#x27;app-settings&#x27;,
   templateUrl: &#x27;./settings.component.html&#x27;,
-  styleUrls: [&#x27;./settings.component.css&#x27;]
+  styleUrls: [&#x27;./settings.component.css&#x27;],
 })
-export class SettingsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class SettingsComponent {
+  constructor(private authService: AuthService) {
+    this.backendURL &#x3D; environment.baseURL;
+    this.token &#x3D; this.authService.user.value.token;
   }
 
+  backendURL: string;
+  token: string;
 }
 </code></pre>
     </div>
@@ -240,16 +286,105 @@ export class SettingsComponent implements OnInit {
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;contanier-fluid&quot;&gt;
   &lt;div class&#x3D;&quot;row&quot;&gt;
     &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
-      &lt;h5&gt;Email Settings&lt;/h5&gt;
+      &lt;h5 class&#x3D;&quot;text-center&quot;&gt;Add reminders via email&lt;/h5&gt;
       &lt;p&gt;
-        Az e-mailen keresztüli emlékeztető felvételének szintaktikája következő:
-        &lt;br /&gt;1. sor: emlékeztető címe &lt;br /&gt;2. sor: emlékeztető időpontja
-        (Formátum: ) &lt;br /&gt;3. sor: értesítés módja&lt;br /&gt;4+. sor: szöveges leírás
+        Service&#x27;s email address:
+        &lt;code&gt;reminders.api2020@gmail.com&lt;/code&gt;
+      &lt;/p&gt;
+      &lt;hr /&gt;
+      &lt;p&gt;
+        The email&#x27;s syntax should be like this:
+        &lt;br /&gt;
+        &lt;strong&gt;1. line:&lt;/strong&gt; Reminder&#x27;s name &lt;br /&gt;
+        &lt;strong&gt;2. line:&lt;/strong&gt; Reminder&#x27;s deadline as “yyyy/mm/dd hh:mm”&lt;br /&gt;
+        &lt;strong&gt;3. line:&lt;/strong&gt; Reminder&#x27;s notification mode
+        (web/email/api)&lt;br /&gt;
+        &lt;strong&gt;4. line:&lt;/strong&gt; Only if you Choosed &quot;API&quot; callback
+        notification: Reminder&#x27;s Callback URL&lt;br /&gt;
+        &lt;strong&gt;5+ lines:&lt;/strong&gt; Reminder&#x27;s description
+      &lt;/p&gt;
+      &lt;hr /&gt;
+      &lt;p&gt;
+        If there is any error in the sent email, the service will answer in a
+        descriptive email to the sender mail. &lt;br /&gt;
+        If the email adding was successfull then you should see it in the main
+        page.
       &lt;/p&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
-      &lt;h5&gt;API Settings&lt;/h5&gt;
-      &lt;p&gt;&lt;/p&gt;
+      &lt;h5 class&#x3D;&quot;text-center&quot;&gt;Add reminders via API&lt;/h5&gt;
+      &lt;p class&#x3D;&quot;text-center&quot;&gt;
+        You can easily add, modify, delete using the API. &lt;br /&gt;
+        &lt;span class&#x3D;&quot;text-warning&quot;
+          &gt;Warning! Do not share your token with anyone!&lt;/span
+        &gt;
+      &lt;/p&gt;
+      &lt;div class&#x3D;&quot;text-center&quot;&gt;
+        &lt;button
+          type&#x3D;&quot;button&quot;
+          class&#x3D;&quot;btn btn-dark&quot;
+          data-toggle&#x3D;&quot;collapse&quot;
+          data-target&#x3D;&quot;#collapseExample&quot;
+          aria-expanded&#x3D;&quot;false&quot;
+          aria-controls&#x3D;&quot;collapseExample&quot;
+        &gt;
+          Show Token
+        &lt;/button&gt;
+        &lt;div class&#x3D;&quot;collapse&quot; id&#x3D;&quot;collapseExample&quot;&gt;
+          &lt;div class&#x3D;&quot;card&quot;&gt;
+            &lt;div class&#x3D;&quot;card-body&quot;&gt;
+              Your token: &lt;code&gt;{{ token }}&lt;/code&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;hr /&gt;
+      &lt;p&gt;
+        You need to be authorized before you can call on any URL. You can
+        authorize yourself by adding your token to the your request&#x27;s header
+        like this:
+        &lt;br /&gt;
+        Header: ( Authorization: &quot;Bearer *token*&quot; )
+      &lt;/p&gt;
+      &lt;hr /&gt;
+      The server&#x27;s base URL: &lt;code&gt;{{ backendURL }}&lt;/code&gt;
+      &lt;hr /&gt;
+      &lt;table class&#x3D;&quot;table table-sm table-hover&quot;&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;HTTP&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;URL&lt;/th&gt;
+            &lt;th scope&#x3D;&quot;col&quot;&gt;Last&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;td&gt;GET&lt;/td&gt;
+            &lt;td&gt;/reminders&lt;/td&gt;
+            &lt;td&gt;Gets All.&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;td&gt;POST&lt;/td&gt;
+            &lt;td&gt;/reminders&lt;/td&gt;
+            &lt;td&gt;Creates a new ID.&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;td&gt;GET&lt;/td&gt;
+            &lt;td&gt;/reminders/1&lt;/td&gt;
+            &lt;td&gt;Gets With ID 1.&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;td&gt;PUT&lt;/td&gt;
+            &lt;td&gt;/reminders/1&lt;/td&gt;
+            &lt;td&gt;Updates with ID 1.&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;td&gt;DELETE&lt;/td&gt;
+            &lt;td&gt;/reminders/1&lt;/td&gt;
+            &lt;td&gt;Deletes with ID 1.&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -288,8 +423,8 @@ export class SettingsComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="contanier-fluid">  <div class="row">    <div class="col-md-6">      <h5>Email Settings</h5>      <p>        Az e-mailen keresztüli emlékeztető felvételének szintaktikája következő:        <br />1. sor: emlékeztető címe <br />2. sor: emlékeztető időpontja        (Formátum: ) <br />3. sor: értesítés módja<br />4+. sor: szöveges leírás      </p>    </div>    <div class="col-md-6">      <h5>API Settings</h5>      <p></p>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'ReminderAddComponent', 'selector': 'app-reminder-add'},{'name': 'ReminderComponent', 'selector': 'app-reminder'},{'name': 'ReminderListComponent', 'selector': 'app-reminder-list'},{'name': 'ReminderListItemComponent', 'selector': 'app-reminder-list-item'},{'name': 'SettingsComponent', 'selector': 'app-settings'}];
+        var COMPONENT_TEMPLATE = '<div><div class="contanier-fluid">  <div class="row">    <div class="col-md-6">      <h5 class="text-center">Add reminders via email</h5>      <p>        Service\'s email address:        <code>reminders.api2020@gmail.com</code>      </p>      <hr />      <p>        The email\'s syntax should be like this:        <br />        <strong>1. line:</strong> Reminder\'s name <br />        <strong>2. line:</strong> Reminder\'s deadline as “yyyy/mm/dd hh:mm”<br />        <strong>3. line:</strong> Reminder\'s notification mode        (web/email/api)<br />        <strong>4. line:</strong> Only if you Choosed "API" callback        notification: Reminder\'s Callback URL<br />        <strong>5+ lines:</strong> Reminder\'s description      </p>      <hr />      <p>        If there is any error in the sent email, the service will answer in a        descriptive email to the sender mail. <br />        If the email adding was successfull then you should see it in the main        page.      </p>    </div>    <div class="col-md-6">      <h5 class="text-center">Add reminders via API</h5>      <p class="text-center">        You can easily add, modify, delete using the API. <br />        <span class="text-warning"          >Warning! Do not share your token with anyone!</span        >      </p>      <div class="text-center">        <button          type="button"          class="btn btn-dark"          data-toggle="collapse"          data-target="#collapseExample"          aria-expanded="false"          aria-controls="collapseExample"        >          Show Token        </button>        <div class="collapse" id="collapseExample">          <div class="card">            <div class="card-body">              Your token: <code>{{ token }}</code>            </div>          </div>        </div>      </div>      <hr />      <p>        You need to be authorized before you can call on any URL. You can        authorize yourself by adding your token to the your request\'s header        like this:        <br />        Header: ( Authorization: "Bearer *token*" )      </p>      <hr />      The server\'s base URL: <code>{{ backendURL }}</code>      <hr />      <table class="table table-sm table-hover">        <thead>          <tr>            <th scope="col">HTTP</th>            <th scope="col">URL</th>            <th scope="col">Last</th>          </tr>        </thead>        <tbody>          <tr>            <td>GET</td>            <td>/reminders</td>            <td>Gets All.</td>          </tr>          <tr>            <td>POST</td>            <td>/reminders</td>            <td>Creates a new ID.</td>          </tr>          <tr>            <td>GET</td>            <td>/reminders/1</td>            <td>Gets With ID 1.</td>          </tr>          <tr>            <td>PUT</td>            <td>/reminders/1</td>            <td>Updates with ID 1.</td>          </tr>          <tr>            <td>DELETE</td>            <td>/reminders/1</td>            <td>Deletes with ID 1.</td>          </tr>        </tbody>      </table>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'ReminderAddComponent', 'selector': 'app-reminder-add'},{'name': 'ReminderComponent', 'selector': 'app-reminder'},{'name': 'ReminderListComponent', 'selector': 'app-reminder-list'},{'name': 'ReminderListItemComponent', 'selector': 'app-reminder-list-item'},{'name': 'SettingsComponent', 'selector': 'app-settings'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SettingsComponent'};
 </script>

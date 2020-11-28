@@ -55,13 +55,17 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AppModule.html" data-type="entity-link">AppModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#components-links-module-AppModule-67f97ccd39aaa2d2361147d3f9188752"' : 'data-target="#xs-components-links-module-AppModule-67f97ccd39aaa2d2361147d3f9188752"' }>
+                                            'data-target="#components-links-module-AppModule-7ba101f071e6d17b92b0e4d89a6e397f"' : 'data-target="#xs-components-links-module-AppModule-7ba101f071e6d17b92b0e4d89a6e397f"' }>
                                             <span class="icon ion-md-cog"></span>
                                             <span>Components</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-67f97ccd39aaa2d2361147d3f9188752"' :
-                                            'id="xs-components-links-module-AppModule-67f97ccd39aaa2d2361147d3f9188752"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="components-links-module-AppModule-7ba101f071e6d17b92b0e4d89a6e397f"' :
+                                            'id="xs-components-links-module-AppModule-7ba101f071e6d17b92b0e4d89a6e397f"' }>
+                                            <li class="link">
+                                                <a href="components/AdminComponent.html"
+                                                    data-type="entity-link" data-context="sub-entity" data-context-id="modules">AdminComponent</a>
+                                            </li>
                                             <li class="link">
                                                 <a href="components/AppComponent.html"
                                                     data-type="entity-link" data-context="sub-entity" data-context-id="modules">AppComponent</a>
@@ -131,6 +135,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
+                                    <a href="injectables/AdminService.html" data-type="entity-link">AdminService</a>
+                                </li>
+                                <li class="link">
                                     <a href="injectables/AuthService.html" data-type="entity-link">AuthService</a>
                                 </li>
                                 <li class="link">
@@ -160,6 +167,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? 'id="guards-links"' : 'id="xs-guards-links"' }>
                             <li class="link">
+                                <a href="guards/AdminGuard.html" data-type="entity-link">AdminGuard</a>
+                            </li>
+                            <li class="link">
                                 <a href="guards/AuthGuard.html" data-type="entity-link">AuthGuard</a>
                             </li>
                         </ul>
@@ -174,6 +184,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
                                 <a href="interfaces/AuthDataResponse.html" data-type="entity-link">AuthDataResponse</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/UserResponse.html" data-type="entity-link">UserResponse</a>
                             </li>
                         </ul>
                     </li>
