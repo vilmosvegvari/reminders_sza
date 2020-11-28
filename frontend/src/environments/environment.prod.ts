@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseURL: 'http://localhost:5000/',
+  baseURL: 'http://reminders-sza-backend.herokuapp.com/',
 };

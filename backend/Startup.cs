@@ -84,7 +84,18 @@ namespace backend
                                             .AllowAnyMethod()
                                             .AllowCredentials()
                                             .SetIsOriginAllowed((host) => true);
-                     });
+                        builder.WithOrigins("http://sza-reminders.netlify.app/")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod()
+                                            .AllowCredentials()
+                                            .SetIsOriginAllowed((host) => true);
+                        builder.WithOrigins("https://sza-reminders.netlify.app/")
+                                            .AllowAnyHeader()
+                                            .AllowAnyMethod()
+                                            .AllowCredentials()
+                                            .SetIsOriginAllowed((host) => true);
+
+                    });
                     });
 
 
