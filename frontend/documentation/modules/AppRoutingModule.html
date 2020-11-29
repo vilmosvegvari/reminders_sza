@@ -75,8 +75,10 @@ import { Routes, RouterModule } from &#x27;@angular/router&#x27;;
 import { AuthComponent } from &#x27;./auth/auth.component&#x27;;
 import { ReminderComponent } from &#x27;./reminder/reminder.component&#x27;;
 import { SettingsComponent } from &#x27;./settings/settings.component&#x27;;
+import { AdminComponent } from &#x27;./admin/admin.component&#x27;;
 
 import { AuthGuard } from &#x27;./auth/auth-guard&#x27;;
+import { AdminGuard } from &#x27;./admin/admin-guard&#x27;;
 
 const routes: Routes &#x3D; [
   { path: &#x27;&#x27;, redirectTo: &#x27;reminders&#x27;, pathMatch: &#x27;full&#x27; },
@@ -87,6 +89,7 @@ const routes: Routes &#x3D; [
     canActivate: [AuthGuard],
   },
   { path: &#x27;settings&#x27;, component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: &#x27;admin&#x27;, component: AdminComponent, canActivate: [AdminGuard] },
 ];
 
 @NgModule({

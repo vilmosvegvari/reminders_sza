@@ -66,7 +66,8 @@ namespace backend.Email
             var list = new List<Reminder>();
             foreach (var item in _context.Reminders)
             {
-                if ((item.Notification == "email" || item.Notification == "api") && !item.NotificationSent && CompareDate(item.Deadline))
+                _context.Reminders.Update(item);
+                if ((item.Notification == "email" || item.Notification == "api") && !item.NotificationSent && CompareDate(item.Deadline.ToLocalTime()))
                     list.Add(item);
             }
             return list;

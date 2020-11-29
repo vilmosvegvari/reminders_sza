@@ -35,7 +35,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>AppComponent</li>
+  <li>AdminComponent</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -49,9 +49,6 @@
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
         </li>
         <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -61,7 +58,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/app.component.ts</code>
+    <code>src/app/admin/admin.component.ts</code>
 </p>
 
 
@@ -91,19 +88,15 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-root</code></td>
+                <td class="col-md-9"><code>app-admin</code></td>
             </tr>
 
-            <tr>
-                <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./app.component.css</code></td>
-            </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./app.component.html</code></td>
+                <td class="col-md-9"><code>./admin.component.html</code></td>
             </tr>
 
 
@@ -121,6 +114,20 @@
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#users">users</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -132,6 +139,9 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onDeleteUser">onDeleteUser</a>
                             </li>
                         </ul>
                     </td>
@@ -151,12 +161,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authService: <a href="../injectables/AuthService.html">AuthService</a>)</code>
+<code>constructor(adminService: <a href="../injectables/AdminService.html">AdminService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/app.component.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/admin/admin.component.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -174,10 +184,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>authService</td>
+                                                        <td>adminService</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                                        <code><a href="../injectables/AdminService.html" target="_self" >AdminService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -225,8 +235,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/app.component.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="13"
+                            class="link-to-prism">src/app/admin/admin.component.ts:13</a></div>
                 </td>
             </tr>
 
@@ -242,6 +252,110 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDeleteUser"></a>
+                    <span class="name">
+                        <b>
+                            onDeleteUser
+                        </b>
+                        <a href="#onDeleteUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDeleteUser(userid)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="18"
+                            class="link-to-prism">src/app/admin/admin.component.ts:18</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userid</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="users"></a>
+                        <span class="name">
+                            <b>
+                            users</b>
+                            <a href="#users"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/admin/admin.component.ts:9</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
 </section>
 
 </div>
@@ -249,40 +363,61 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { AuthService } from &#x27;./auth/auth.service&#x27;;
+import { AdminService } from &#x27;./admin.service&#x27;;
 
 @Component({
-  selector: &#x27;app-root&#x27;,
-  templateUrl: &#x27;./app.component.html&#x27;,
-  styleUrls: [&#x27;./app.component.css&#x27;],
+  selector: &#x27;app-admin&#x27;,
+  templateUrl: &#x27;./admin.component.html&#x27;,
 })
-export class AppComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+export class AdminComponent implements OnInit {
+  users &#x3D; [];
 
-  ngOnInit() {
-    this.authService.autoLogin();
-    Notification.requestPermission();
+  constructor(private adminService: AdminService) {}
+
+  ngOnInit(): void {
+    this.adminService.users.subscribe((users) &#x3D;&gt; (this.users &#x3D; users));
+    this.adminService.fetchUsers();
+  }
+
+  onDeleteUser(userid) {
+    this.adminService.deleteUser(userid);
   }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;app-header&gt;&lt;/app-header&gt;
-&lt;div class&#x3D;&quot;container&quot;&gt;
-  &lt;div class&#x3D;&quot;justify-content-center&quot;&gt;
-    &lt;router-outlet&gt;&lt;/router-outlet&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;table class&#x3D;&quot;table&quot;&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope&#x3D;&quot;col&quot;&gt;#&lt;/th&gt;
+      &lt;th scope&#x3D;&quot;col&quot;&gt;UserID&lt;/th&gt;
+      &lt;th scope&#x3D;&quot;col&quot;&gt;Email&lt;/th&gt;
+      &lt;th scope&#x3D;&quot;col&quot;&gt;Admin&lt;/th&gt;
+      &lt;th scope&#x3D;&quot;col&quot;&gt;Action&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr *ngFor&#x3D;&quot;let user of users; let i &#x3D; index&quot;&gt;
+      &lt;th scope&#x3D;&quot;row&quot;&gt;{{ i + 1 }}&lt;/th&gt;
+      &lt;td&gt;{{ user.userId }}&lt;/td&gt;
+      &lt;td&gt;{{ user.email }}&lt;/td&gt;
+      &lt;td&gt;{{ user.isAdmin }}&lt;/td&gt;
+      &lt;td&gt;
+        &lt;button
+          type&#x3D;&quot;button&quot;
+          class&#x3D;&quot;btn btn-danger&quot;
+          (click)&#x3D;&quot;onDeleteUser(user.userId)&quot;
+        &gt;
+          Delete
+        &lt;/button&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 </code></pre>
     </div>
 
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./app.component.css</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
-    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>
@@ -309,10 +444,10 @@ export class AppComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><app-header></app-header><div class="container">  <div class="justify-content-center">    <router-outlet></router-outlet>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><table class="table">  <thead>    <tr>      <th scope="col">#</th>      <th scope="col">UserID</th>      <th scope="col">Email</th>      <th scope="col">Admin</th>      <th scope="col">Action</th>    </tr>  </thead>  <tbody>    <tr *ngFor="let user of users; let i = index">      <th scope="row">{{ i + 1 }}</th>      <td>{{ user.userId }}</td>      <td>{{ user.email }}</td>      <td>{{ user.isAdmin }}</td>      <td>        <button          type="button"          class="btn btn-danger"          (click)="onDeleteUser(user.userId)"        >          Delete        </button>      </td>    </tr>  </tbody></table></div>'
     var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'ReminderAddComponent', 'selector': 'app-reminder-add'},{'name': 'ReminderComponent', 'selector': 'app-reminder'},{'name': 'ReminderListComponent', 'selector': 'app-reminder-list'},{'name': 'ReminderListItemComponent', 'selector': 'app-reminder-list-item'},{'name': 'SettingsComponent', 'selector': 'app-settings'}];
     var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'AppComponent'};
+    var ACTUAL_COMPONENT = {'name': 'AdminComponent'};
 </script>
 <script src="../js/tree.js"></script>
 
@@ -347,7 +482,7 @@ export class AppComponent implements OnInit {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppComponent.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminComponent.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -478,7 +478,7 @@ export class AuthComponent {
     }
 
     authObserver.subscribe(
-      (response) &#x3D;&gt; {
+      () &#x3D;&gt; {
         this.isLoading &#x3D; false;
         this.router.navigate([&#x27;/reminders&#x27;]);
       },
@@ -486,8 +486,12 @@ export class AuthComponent {
         console.log(errorMessage);
         if (errorMessage.name &#x3D;&#x3D;&#x3D; &#x27;TimeoutError&#x27;) {
           this.error &#x3D; errorMessage.message;
+        }
+        if (errorMessage.status &#x3D;&#x3D;&#x3D; 401) {
+          this.error &#x3D; &#x27;Error - Wrong credentatials!&#x27;;
         } else {
-          this.error &#x3D; errorMessage.status + &#x27; - &#x27; + errorMessage.statusText;
+          this.error &#x3D;
+            errorMessage.error.status + &#x27; - &#x27; + errorMessage.error.message;
         }
         this.isLoading &#x3D; false;
       }
@@ -582,7 +586,7 @@ export class AuthComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="row justify-content-center">  <div class="col-xs-12 col-md-6 col-md-offset-3">    <div class="alert alert-danger" *ngIf="error">      <p>{{ error }}</p>    </div>    <div *ngIf="isLoading" style="text-align: center">      <app-loading-spinner></app-loading-spinner>    </div>    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">      <div class="form-group">        <label for="email">Email</label>        <input          type="email"          id="email"          class="form-control"          ngModel          name="email"          required          email        />      </div>      <div class="form-group">        <label for="password">Password</label>        <input          type="password"          id="password"          class="form-control"          ngModel          name="password"          required          minlength="4"        />      </div>      <div class="text-center">        <button class="btn btn-dark" type="submit" [disabled]="!authForm.valid">          {{ isLoginMode ? "Login" : "Sign Up" }}        </button>        |        <button class="btn btn-dark" (click)="onSwitchMode()" type="button">          Switch to {{ isLoginMode ? "Sign Up" : "Login" }}        </button>      </div>    </form>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'ReminderAddComponent', 'selector': 'app-reminder-add'},{'name': 'ReminderComponent', 'selector': 'app-reminder'},{'name': 'ReminderListComponent', 'selector': 'app-reminder-list'},{'name': 'ReminderListItemComponent', 'selector': 'app-reminder-list-item'},{'name': 'SettingsComponent', 'selector': 'app-settings'}];
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'ReminderAddComponent', 'selector': 'app-reminder-add'},{'name': 'ReminderComponent', 'selector': 'app-reminder'},{'name': 'ReminderListComponent', 'selector': 'app-reminder-list'},{'name': 'ReminderListItemComponent', 'selector': 'app-reminder-list-item'},{'name': 'SettingsComponent', 'selector': 'app-settings'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AuthComponent'};
 </script>
