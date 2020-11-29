@@ -29,8 +29,8 @@ namespace backend
         {
 
             services.AddControllers();
-            services.AddTransient < EmailReciever >();
-            services.AddTransient < NotificationSender >();
+            services.AddSingleton < EmailReciever >();
+            services.AddSingleton< NotificationSender >();
 
             // Entity framework for users
             services.AddDbContext<UserDbContext>(opt => opt.UseInMemoryDatabase("UserList"));
