@@ -130,6 +130,9 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#isAdmin">isAdmin</a>
+                            </li>
+                            <li>
                                 <a href="#isAuthenticated">isAuthenticated</a>
                             </li>
                             <li>
@@ -186,7 +189,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/header/header.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/header/header.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -279,8 +282,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/app/header/header.component.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/header/header.component.ts:34</a></div>
                 </td>
             </tr>
 
@@ -318,8 +321,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/header/header.component.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/header/header.component.ts:24</a></div>
                 </td>
             </tr>
 
@@ -357,8 +360,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/header/header.component.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/header/header.component.ts:46</a></div>
                 </td>
             </tr>
 
@@ -396,8 +399,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/app/header/header.component.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/header/header.component.ts:38</a></div>
                 </td>
             </tr>
 
@@ -435,8 +438,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/app/header/header.component.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/header/header.component.ts:42</a></div>
                 </td>
             </tr>
 
@@ -489,6 +492,32 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="isAdmin"></a>
+                        <span class="name">
+                            <b>
+                            isAdmin</b>
+                            <a href="#isAdmin"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/header/header.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="isAuthenticated"></a>
                         <span class="name">
                             <b>
@@ -532,7 +561,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/header/header.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/header/header.component.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -559,6 +588,7 @@ import { ReminderService } from &#x27;../reminder/reminder.service&#x27;;
 })
 export class HeaderComponent implements OnInit {
   isAuthenticated &#x3D; false;
+  isAdmin &#x3D; false;
   private userSub: Subscription;
 
   constructor(
@@ -570,6 +600,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.userSub &#x3D; this.authService.user.subscribe((user) &#x3D;&gt; {
       this.isAuthenticated &#x3D; !!user;
+      if (this.isAuthenticated) {
+        this.isAdmin &#x3D; user.isAdmin;
+      } else {
+        this.isAdmin &#x3D; false;
+      }
     });
   }
   ngOnDestroy(): void {
@@ -623,6 +658,16 @@ export class HeaderComponent implements OnInit {
           routerLinkActive&#x3D;&quot;active&quot;
           [ngClass]&#x3D;&quot;{ disabled: !isAuthenticated }&quot;
           &gt;Settings&lt;/a
+        &gt;
+      &lt;/li&gt;
+
+      &lt;li class&#x3D;&quot;nav-item&quot; *ngIf&#x3D;&quot;isAdmin&quot;&gt;
+        &lt;a
+          class&#x3D;&quot;nav-link&quot;
+          routerLink&#x3D;&quot;/admin&quot;
+          routerLinkActive&#x3D;&quot;active&quot;
+          [ngClass]&#x3D;&quot;{ hidden: !isAdmin }&quot;
+          &gt;Admin&lt;/a
         &gt;
       &lt;/li&gt;
     &lt;/ul&gt;
@@ -685,8 +730,8 @@ export class HeaderComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-expand-lg navbar-dark bg-dark">  <a class="navbar-brand" href="#">Reminders</a>  <button    class="navbar-toggler"    type="button"    data-toggle="collapse"    data-target="#navbarSupportedContent"    aria-controls="navbarSupportedContent"    aria-expanded="false"    aria-label="Toggle navigation"  >    <span class="navbar-toggler-icon"></span>  </button>  <div class="collapse navbar-collapse" id="navbarSupportedContent">    <ul class="navbar-nav mr-auto">      <li class="nav-item">        <a class="nav-link" routerLink="/reminders" routerLinkActive="active"          >Home <span class="sr-only"></span        ></a>      </li>      <li class="nav-item">        <a          class="nav-link"          routerLink="/settings"          routerLinkActive="active"          [ngClass]="{ disabled: !isAuthenticated }"          >Settings</a        >      </li>    </ul>    <div class="nav-item navbar-nav">      <a        class="nav-link"        routerLink="/auth"        routerLinkActive="active"        (click)="onLogout()"        >{{ !isAuthenticated ? "Login" : "Logout" }}</a      >    </div>    <form class="form-inline my-2 my-lg-0" *ngIf="onReminderPage()">      <input        class="form-control mr-sm-2"        type="search"        placeholder="Search"        aria-label="Search"        (input)="reminderSearch($event.target.value)"      />      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">        Search      </button>    </form>  </div></nav></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'ReminderAddComponent', 'selector': 'app-reminder-add'},{'name': 'ReminderComponent', 'selector': 'app-reminder'},{'name': 'ReminderListComponent', 'selector': 'app-reminder-list'},{'name': 'ReminderListItemComponent', 'selector': 'app-reminder-list-item'},{'name': 'SettingsComponent', 'selector': 'app-settings'}];
+        var COMPONENT_TEMPLATE = '<div><nav class="navbar navbar-expand-lg navbar-dark bg-dark">  <a class="navbar-brand" href="#">Reminders</a>  <button    class="navbar-toggler"    type="button"    data-toggle="collapse"    data-target="#navbarSupportedContent"    aria-controls="navbarSupportedContent"    aria-expanded="false"    aria-label="Toggle navigation"  >    <span class="navbar-toggler-icon"></span>  </button>  <div class="collapse navbar-collapse" id="navbarSupportedContent">    <ul class="navbar-nav mr-auto">      <li class="nav-item">        <a class="nav-link" routerLink="/reminders" routerLinkActive="active"          >Home <span class="sr-only"></span        ></a>      </li>      <li class="nav-item">        <a          class="nav-link"          routerLink="/settings"          routerLinkActive="active"          [ngClass]="{ disabled: !isAuthenticated }"          >Settings</a        >      </li>      <li class="nav-item" *ngIf="isAdmin">        <a          class="nav-link"          routerLink="/admin"          routerLinkActive="active"          [ngClass]="{ hidden: !isAdmin }"          >Admin</a        >      </li>    </ul>    <div class="nav-item navbar-nav">      <a        class="nav-link"        routerLink="/auth"        routerLinkActive="active"        (click)="onLogout()"        >{{ !isAuthenticated ? "Login" : "Logout" }}</a      >    </div>    <form class="form-inline my-2 my-lg-0" *ngIf="onReminderPage()">      <input        class="form-control mr-sm-2"        type="search"        placeholder="Search"        aria-label="Search"        (input)="reminderSearch($event.target.value)"      />      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">        Search      </button>    </form>  </div></nav></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'ReminderAddComponent', 'selector': 'app-reminder-add'},{'name': 'ReminderComponent', 'selector': 'app-reminder'},{'name': 'ReminderListComponent', 'selector': 'app-reminder-list'},{'name': 'ReminderListItemComponent', 'selector': 'app-reminder-list-item'},{'name': 'SettingsComponent', 'selector': 'app-settings'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
 </script>

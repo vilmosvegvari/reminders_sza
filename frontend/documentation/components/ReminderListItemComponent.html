@@ -201,7 +201,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:53</a></div>
                             </td>
                         </tr>
 
@@ -221,7 +221,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:37</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -245,7 +245,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:38</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -266,7 +266,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:39</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -301,8 +301,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:47</a></div>
                 </td>
             </tr>
 
@@ -340,8 +340,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="51"
+                            class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:51</a></div>
                 </td>
             </tr>
 
@@ -379,8 +379,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="17"
-                            class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:17</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="43"
+                            class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:43</a></div>
                 </td>
             </tr>
 
@@ -421,7 +421,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/reminder/reminder-list/reminder-list-item/reminder-list-item.component.ts:41</a></div>
                             </td>
                         </tr>
 
@@ -434,7 +434,13 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { animate, style, transition, trigger } from &#x27;@angular/animations&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from &#x27;@angular/animations&#x27;;
 import { Component, EventEmitter, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
 import { Reminder } from &#x27;../../reminder.model&#x27;;
 
@@ -442,6 +448,26 @@ import { Reminder } from &#x27;../../reminder.model&#x27;;
   selector: &#x27;app-reminder-list-item&#x27;,
   templateUrl: &#x27;./reminder-list-item.component.html&#x27;,
   styleUrls: [&#x27;./reminder-list-item.component.css&#x27;],
+  animations: [
+    trigger(&#x27;smoothCollapse&#x27;, [
+      state(
+        &#x27;initial&#x27;,
+        style({
+          height: &#x27;0&#x27;,
+          overflow: &#x27;hidden&#x27;,
+          opacity: &#x27;0&#x27;,
+          visibility: &#x27;hidden&#x27;,
+        })
+      ),
+      state(
+        &#x27;final&#x27;,
+        style({
+          overflow: &#x27;hidden&#x27;,
+        })
+      ),
+      transition(&#x27;initial&lt;&#x3D;&gt;final&#x27;, animate(&#x27;250ms&#x27;)),
+    ]),
+  ],
 })
 export class ReminderListItemComponent {
   @Input() reminder;
@@ -470,8 +496,16 @@ export class ReminderListItemComponent {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;row card-body bg-dark text-white&quot; (click)&#x3D;&quot;onReminderClicked()&quot;&gt;
   &lt;div class&#x3D;&quot;col-md-4 col-sm-5 col-4&quot;&gt;{{ reminder.name }}&lt;/div&gt;
-  &lt;div class&#x3D;&quot;col-md-3 col-sm-4 col-3&quot;&gt;{{ reminder.deadline }}&lt;/div&gt;
-  &lt;div class&#x3D;&quot;col-md-2 col-sm-3 col-5&quot;&gt;{{ reminder.notification }}&lt;/div&gt;
+  &lt;div class&#x3D;&quot;col-md-3 col-sm-4 col-3&quot;&gt;
+    &lt;small&gt;{{ reminder.deadlineString }}&lt;/small&gt;
+  &lt;/div&gt;
+  &lt;div
+    class&#x3D;&quot;col-md-2 col-sm-3 col-5&quot;
+    placement&#x3D;&quot;top&quot;
+    ngbTooltip&#x3D;&quot;{{ reminder.callbackUrl }}&quot;
+  &gt;
+    {{ reminder.notification }}
+  &lt;/div&gt;
   &lt;div class&#x3D;&quot;col-md-3 d-none d-sm-none d-md-block&quot;&gt;
     &lt;button
       class&#x3D;&quot;btn btn-success btn-sm&quot;
@@ -489,12 +523,17 @@ export class ReminderListItemComponent {
 &lt;/div&gt;
 &lt;div
   class&#x3D;&quot;row justify-content-center text-white bg-secondary&quot;
-  *ngIf&#x3D;&quot;showingDescription&quot;
+  [@smoothCollapse]&#x3D;&quot;!showingDescription ? &#x27;initial&#x27; : &#x27;final&#x27;&quot;
 &gt;
   &lt;div class&#x3D;&quot;p-3&quot;&gt;
-    {{ reminder.description }}
-    &lt;br /&gt;
+    &lt;div *ngIf&#x3D;&quot;reminder.description&quot;&gt;
+      {{ reminder.description }}
+      &lt;hr /&gt;
+    &lt;/div&gt;
+    &lt;small&gt;Created at {{ reminder.creationString }} &lt;/small&gt;
+
     &lt;div class&#x3D;&quot;d-block d-sm-block d-md-none font-italic&quot;&gt;
+      &lt;hr /&gt;
       &lt;button
         class&#x3D;&quot;btn btn-success btn-sm&quot;
         (click)&#x3D;&quot;onModify(); $event.stopPropagation()&quot;
@@ -507,8 +546,9 @@ export class ReminderListItemComponent {
       &gt;
         Delete
       &lt;/button&gt;
+      &lt;hr *ngIf&#x3D;&quot;reminder.callbackUrl&quot; /&gt;
+      {{ reminder.callbackUrl }}
     &lt;/div&gt;
-    Created at {{ reminder.creation }}
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -546,8 +586,8 @@ export class ReminderListItemComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="row card-body bg-dark text-white" (click)="onReminderClicked()">  <div class="col-md-4 col-sm-5 col-4">{{ reminder.name }}</div>  <div class="col-md-3 col-sm-4 col-3">{{ reminder.deadline }}</div>  <div class="col-md-2 col-sm-3 col-5">{{ reminder.notification }}</div>  <div class="col-md-3 d-none d-sm-none d-md-block">    <button      class="btn btn-success btn-sm"      (click)="onModify(); $event.stopPropagation()"    >      Modify    </button>    <button      class="btn btn-danger btn-sm"      (click)="onDelete(); $event.stopPropagation()"    >      Delete    </button>  </div></div><div  class="row justify-content-center text-white bg-secondary"  *ngIf="showingDescription">  <div class="p-3">    {{ reminder.description }}    <br />    <div class="d-block d-sm-block d-md-none font-italic">      <button        class="btn btn-success btn-sm"        (click)="onModify(); $event.stopPropagation()"      >        Modify      </button>      <button        class="btn btn-danger btn-sm"        (click)="onDelete(); $event.stopPropagation()"      >        Delete      </button>    </div>    Created at {{ reminder.creation }}  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'ReminderAddComponent', 'selector': 'app-reminder-add'},{'name': 'ReminderComponent', 'selector': 'app-reminder'},{'name': 'ReminderListComponent', 'selector': 'app-reminder-list'},{'name': 'ReminderListItemComponent', 'selector': 'app-reminder-list-item'},{'name': 'SettingsComponent', 'selector': 'app-settings'}];
+        var COMPONENT_TEMPLATE = '<div><div class="row card-body bg-dark text-white" (click)="onReminderClicked()">  <div class="col-md-4 col-sm-5 col-4">{{ reminder.name }}</div>  <div class="col-md-3 col-sm-4 col-3">    <small>{{ reminder.deadlineString }}</small>  </div>  <div    class="col-md-2 col-sm-3 col-5"    placement="top"    ngbTooltip="{{ reminder.callbackUrl }}"  >    {{ reminder.notification }}  </div>  <div class="col-md-3 d-none d-sm-none d-md-block">    <button      class="btn btn-success btn-sm"      (click)="onModify(); $event.stopPropagation()"    >      Modify    </button>    <button      class="btn btn-danger btn-sm"      (click)="onDelete(); $event.stopPropagation()"    >      Delete    </button>  </div></div><div  class="row justify-content-center text-white bg-secondary"  [@smoothCollapse]="!showingDescription ? \'initial\' : \'final\'">  <div class="p-3">    <div *ngIf="reminder.description">      {{ reminder.description }}      <hr />    </div>    <small>Created at {{ reminder.creationString }} </small>    <div class="d-block d-sm-block d-md-none font-italic">      <hr />      <button        class="btn btn-success btn-sm"        (click)="onModify(); $event.stopPropagation()"      >        Modify      </button>      <button        class="btn btn-danger btn-sm"        (click)="onDelete(); $event.stopPropagation()"      >        Delete      </button>      <hr *ngIf="reminder.callbackUrl" />      {{ reminder.callbackUrl }}    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'ReminderAddComponent', 'selector': 'app-reminder-add'},{'name': 'ReminderComponent', 'selector': 'app-reminder'},{'name': 'ReminderListComponent', 'selector': 'app-reminder-list'},{'name': 'ReminderListItemComponent', 'selector': 'app-reminder-list-item'},{'name': 'SettingsComponent', 'selector': 'app-settings'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ReminderListItemComponent'};
 </script>

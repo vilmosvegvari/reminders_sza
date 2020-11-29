@@ -131,7 +131,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/auth/auth.service.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/auth/auth.service.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -208,8 +208,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/auth/auth.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/auth/auth.service.ts:45</a></div>
                 </td>
             </tr>
 
@@ -242,15 +242,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>handleAuthentication(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>handleAuthentication(email: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, isAdmin: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">src/app/auth/auth.service.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">src/app/auth/auth.service.ts:91</a></div>
                 </td>
             </tr>
 
@@ -305,6 +305,18 @@
 
 
                                 </tr>
+                                <tr>
+                                    <td>isAdmin</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -343,8 +355,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/app/auth/auth.service.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/auth/auth.service.ts:66</a></div>
                 </td>
             </tr>
 
@@ -425,8 +437,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">src/app/auth/auth.service.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="85"
+                            class="link-to-prism">src/app/auth/auth.service.ts:85</a></div>
                 </td>
             </tr>
 
@@ -464,8 +476,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/app/auth/auth.service.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/auth/auth.service.ts:26</a></div>
                 </td>
             </tr>
 
@@ -548,14 +560,9 @@
 
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;http://localhost:3000&#x27;</code>
-                        </td>
-                    </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/auth/auth.service.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/auth/auth.service.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -581,7 +588,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/auth/auth.service.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/auth/auth.service.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -600,35 +607,40 @@ import { Router } from &#x27;@angular/router&#x27;;
 
 import { BehaviorSubject } from &#x27;rxjs&#x27;;
 import { tap, timeout } from &#x27;rxjs/operators&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
 import { User } from &#x27;./user.model&#x27;;
 
 export interface AuthDataResponse {
   email: string;
-  token: string;
-  registered?: boolean;
+  _token: string;
+  isAdmin: boolean;
   id: string;
-  errorMessage: string;
+  errorMessage?: string;
 }
 
 @Injectable({ providedIn: &#x27;root&#x27; })
 export class AuthService {
   user &#x3D; new BehaviorSubject&lt;User&gt;(null);
-
-  constructor(private http: HttpClient, private router: Router) {}
-
-  urlStr &#x3D; &#x27;http://localhost:3000&#x27;;
+  urlStr: string;
+  constructor(private http: HttpClient, private router: Router) {
+    this.urlStr &#x3D; environment.baseURL + &#x27;auth/&#x27;;
+  }
 
   signup(email: string, password: string) {
-    console.log(this.urlStr);
     return this.http
-      .post&lt;AuthDataResponse&gt;(this.urlStr + &#x27;/register&#x27;, {
+      .post&lt;AuthDataResponse&gt;(this.urlStr + &#x27;register&#x27;, {
         email: email,
         password: password,
       })
       .pipe(
         timeout(10000),
         tap((resData) &#x3D;&gt; {
-          this.handleAuthentication(resData.email, resData.id, resData.token);
+          this.handleAuthentication(
+            resData.email,
+            resData.id,
+            resData._token,
+            resData.isAdmin
+          );
         })
       );
   }
@@ -638,26 +650,37 @@ export class AuthService {
       email: string;
       id: string;
       _token: string;
+      isAdmin: boolean;
     } &#x3D; JSON.parse(localStorage.getItem(&#x27;userData&#x27;));
 
     if (!userData) {
       return;
     }
 
-    const loadedUser &#x3D; new User(userData.email, userData.id, userData._token);
+    const loadedUser &#x3D; new User(
+      userData.email,
+      userData.id,
+      userData._token,
+      userData.isAdmin
+    );
     this.user.next(loadedUser);
   }
 
   login(email: string, password: string) {
     return this.http
-      .post&lt;AuthDataResponse&gt;(this.urlStr + &#x27;/login&#x27;, {
+      .post&lt;AuthDataResponse&gt;(this.urlStr + &#x27;login&#x27;, {
         email: email,
         password: password,
       })
       .pipe(
         timeout(10000),
         tap((resData) &#x3D;&gt; {
-          this.handleAuthentication(resData.email, resData.id, resData.token);
+          this.handleAuthentication(
+            resData.email,
+            resData.id,
+            resData._token,
+            resData.isAdmin
+          );
         })
       );
   }
@@ -668,8 +691,13 @@ export class AuthService {
     this.router.navigate([&#x27;/auth&#x27;]);
   }
 
-  private handleAuthentication(email: string, id: string, token: string) {
-    const user &#x3D; new User(email, id, token);
+  private handleAuthentication(
+    email: string,
+    id: string,
+    token: string,
+    isAdmin: boolean
+  ) {
+    const user &#x3D; new User(email, id, token, isAdmin);
     this.user.next(user);
     localStorage.setItem(&#x27;userData&#x27;, JSON.stringify(user));
   }

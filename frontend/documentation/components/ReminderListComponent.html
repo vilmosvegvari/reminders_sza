@@ -312,8 +312,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/reminder/reminder-list/reminder-list.component.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/reminder/reminder-list/reminder-list.component.ts:38</a></div>
                 </td>
             </tr>
 
@@ -351,8 +351,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">src/app/reminder/reminder-list/reminder-list.component.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/app/reminder/reminder-list/reminder-list.component.ts:48</a></div>
                 </td>
             </tr>
 
@@ -417,8 +417,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">src/app/reminder/reminder-list/reminder-list.component.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/app/reminder/reminder-list/reminder-list.component.ts:56</a></div>
                 </td>
             </tr>
 
@@ -483,8 +483,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">src/app/reminder/reminder-list/reminder-list.component.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/reminder/reminder-list/reminder-list.component.ts:52</a></div>
                 </td>
             </tr>
 
@@ -723,32 +723,17 @@ export class ReminderListComponent implements OnInit, OnDestroy {
     this.modalService
       .open(content, { ariaLabelledBy: &#x27;modal-basic-title&#x27; })
       .result.then(
-        (result) &#x3D;&gt; {},
-        (reason) &#x3D;&gt; {
-          console.log(reason);
-        }
+        () &#x3D;&gt; {},
+        () &#x3D;&gt; {}
       );
   }
 
   ngOnInit(): void {
-    this.reminderSubscrtiption &#x3D; this.reminderService.reminders
-      .pipe(
-        // move map to service when backkend is done
-        map((reminders) &#x3D;&gt; {
-          return reminders.map((reminder) &#x3D;&gt; {
-            return {
-              name: reminder.name,
-              deadline: reminder.deadline.toLocaleString(),
-              creation: reminder.creation.toLocaleString(),
-              notification: reminder.notification,
-              description: reminder.description,
-            };
-          });
-        })
-      )
-      .subscribe((reminders) &#x3D;&gt; {
+    this.reminderSubscrtiption &#x3D; this.reminderService.reminders.subscribe(
+      (reminders) &#x3D;&gt; {
         this.reminders &#x3D; reminders;
-      });
+      }
+    );
 
     this.reminderService.getReminders();
   }
@@ -758,7 +743,6 @@ export class ReminderListComponent implements OnInit, OnDestroy {
   }
 
   onModifySaved(newReminder) {
-    console.log(&#x27;elmentett új&#x27;, newReminder);
     this.reminderService.updateReminder(newReminder);
   }
 
@@ -787,7 +771,6 @@ export class ReminderListComponent implements OnInit, OnDestroy {
     (onModify)&#x3D;&quot;onModifyItem($event); open(content)&quot;
   &gt;&lt;/app-reminder-list-item&gt;
 
-  &lt;!-- Button trigger modal --&gt;
   &lt;ng-template #content let-modal&gt;
     &lt;div class&#x3D;&quot;modal-header bg-dark text-white&quot;&gt;
       &lt;h4 class&#x3D;&quot;modal-title&quot; id&#x3D;&quot;modal-basic-title&quot;&gt;Modify Reminder&lt;/h4&gt;
@@ -809,7 +792,6 @@ export class ReminderListComponent implements OnInit, OnDestroy {
     &lt;/div&gt;
   &lt;/ng-template&gt;
 
-  &lt;!-- Modal --&gt;
   &lt;div
     class&#x3D;&quot;modal fade&quot;
     id&#x3D;&quot;exampleModal&quot;
@@ -877,8 +859,8 @@ export class ReminderListComponent implements OnInit, OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><h5 class="text-center">Current Reminders</h5><br /><div class="card text-center">  <div class="row font-italic card-header text-white bg-dark">    <div class="col-md-4 col-sm-5 col-4">Reminder name</div>    <div class="col-md-3 col-sm-4 col-3">Deadline</div>    <div class="col-md-2 col-sm-3 col-5">Notification</div>    <div class="col-md-3 d-none d-sm-none d-md-block">Action</div>  </div>  <app-reminder-list-item    [reminder]="reminder"    *ngFor="let reminder of reminders; let i = index"    (onDelete)="onDeleteItem($event)"    (onModify)="onModifyItem($event); open(content)"  ></app-reminder-list-item>  <!-- Button trigger modal -->  <ng-template #content let-modal>    <div class="modal-header bg-dark text-white">      <h4 class="modal-title" id="modal-basic-title">Modify Reminder</h4>      <button        type="button"        class="close"        aria-label="Close"        (click)="modal.dismiss(\'Cross click\')"      >        <span class="text-white" aria-hidden="true"> × </span>      </button>    </div>    <div class="modal-body">      <app-reminder-add        [reminder]="remindertoModify"        [modify]="true"        (savedModify)="onModifySaved($event); modal.close(\'\')"      ></app-reminder-add>    </div>  </ng-template>  <!-- Modal -->  <div    class="modal fade"    id="exampleModal"    tabindex="-1"    role="dialog"    aria-labelledby="exampleModalLabel"    aria-hidden="true"  >    <div class="modal-dialog" role="document">      <div class="modal-content">        <div class="modal-header">          <h5 class="modal-title" id="exampleModalLabel">Modify Remidner</h5>          <button            type="button"            class="close"            data-dismiss="modal"            aria-label="Close"          >            <span aria-hidden="true">&times;</span>          </button>        </div>        <div class="modal-body">...</div>        <div class="modal-footer">          <button type="button" class="btn btn-secondary" data-dismiss="modal">            Close          </button>          <button type="button" class="btn btn-primary">Save changes</button>        </div>      </div>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'ReminderAddComponent', 'selector': 'app-reminder-add'},{'name': 'ReminderComponent', 'selector': 'app-reminder'},{'name': 'ReminderListComponent', 'selector': 'app-reminder-list'},{'name': 'ReminderListItemComponent', 'selector': 'app-reminder-list-item'},{'name': 'SettingsComponent', 'selector': 'app-settings'}];
+        var COMPONENT_TEMPLATE = '<div><h5 class="text-center">Current Reminders</h5><br /><div class="card text-center">  <div class="row font-italic card-header text-white bg-dark">    <div class="col-md-4 col-sm-5 col-4">Reminder name</div>    <div class="col-md-3 col-sm-4 col-3">Deadline</div>    <div class="col-md-2 col-sm-3 col-5">Notification</div>    <div class="col-md-3 d-none d-sm-none d-md-block">Action</div>  </div>  <app-reminder-list-item    [reminder]="reminder"    *ngFor="let reminder of reminders; let i = index"    (onDelete)="onDeleteItem($event)"    (onModify)="onModifyItem($event); open(content)"  ></app-reminder-list-item>  <ng-template #content let-modal>    <div class="modal-header bg-dark text-white">      <h4 class="modal-title" id="modal-basic-title">Modify Reminder</h4>      <button        type="button"        class="close"        aria-label="Close"        (click)="modal.dismiss(\'Cross click\')"      >        <span class="text-white" aria-hidden="true"> × </span>      </button>    </div>    <div class="modal-body">      <app-reminder-add        [reminder]="remindertoModify"        [modify]="true"        (savedModify)="onModifySaved($event); modal.close(\'\')"      ></app-reminder-add>    </div>  </ng-template>  <div    class="modal fade"    id="exampleModal"    tabindex="-1"    role="dialog"    aria-labelledby="exampleModalLabel"    aria-hidden="true"  >    <div class="modal-dialog" role="document">      <div class="modal-content">        <div class="modal-header">          <h5 class="modal-title" id="exampleModalLabel">Modify Remidner</h5>          <button            type="button"            class="close"            data-dismiss="modal"            aria-label="Close"          >            <span aria-hidden="true">&times;</span>          </button>        </div>        <div class="modal-body">...</div>        <div class="modal-footer">          <button type="button" class="btn btn-secondary" data-dismiss="modal">            Close          </button>          <button type="button" class="btn btn-primary">Save changes</button>        </div>      </div>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'ReminderAddComponent', 'selector': 'app-reminder-add'},{'name': 'ReminderComponent', 'selector': 'app-reminder'},{'name': 'ReminderListComponent', 'selector': 'app-reminder-list'},{'name': 'ReminderListItemComponent', 'selector': 'app-reminder-list-item'},{'name': 'SettingsComponent', 'selector': 'app-settings'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ReminderListComponent'};
 </script>

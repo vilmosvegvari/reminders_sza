@@ -27,15 +27,18 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content component">
+               <div class="content injectable">
                    <div class="content-data">
 
 
 
 
+
+
+
 <ol class="breadcrumb">
-  <li>Components</li>
-  <li>AppComponent</li>
+  <li>Injectables</li>
+  <li>AdminService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -45,82 +48,38 @@
         <li >
             <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
         </li>
-        <li >
-            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
-        </li>
-        <li >
-            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
-        </li>
-        <li >
-            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
-        </li>
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="c-info"><p class="comment">
-    <h3>File</h3>
-</p>
-<p class="comment">
-    <code>src/app/app.component.ts</code>
-</p>
-
-
-
-    <p class="comment">
-        <h3>Implements</h3>
-    </p>
-    <p class="comment">
-                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
-    </p>
-
-
-<section>
-    <h3>Metadata</h3>
-    <table class="table table-sm table-hover">
-        <tbody>
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/admin/admin.service.ts</code>
+        </p>
 
 
 
 
-
-
-
-
-
-
-
-            <tr>
-                <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>app-root</code></td>
-            </tr>
-
-            <tr>
-                <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>./app.component.css</code></td>
-            </tr>
-
-
-
-            <tr>
-                <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>./app.component.html</code></td>
-            </tr>
-
-
-
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
-
-    <section>
+            <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
         <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#users">users</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
                 <tr>
                     <td class="col-md-4">
@@ -131,7 +90,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#ngOnInit">ngOnInit</a>
+                                <a href="#deleteUser">deleteUser</a>
+                            </li>
+                            <li>
+                                <a href="#fetchUsers">fetchUsers</a>
                             </li>
                         </ul>
                     </td>
@@ -145,18 +107,18 @@
     </table>
 </section>
 
-    <section>
+            <section>
     <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authService: <a href="../injectables/AuthService.html">AuthService</a>)</code>
+<code>constructor(http: <a href="https://angular.io/api/common/http/HttpClient" target="_blank">HttpClient</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/app.component.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/admin/admin.service.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -174,10 +136,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>authService</td>
+                                                        <td>http</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -194,11 +156,7 @@
         </table>
 </section>
 
-
-
-
-
-    <section>
+            <section>
     
     <h3 id="methods">
         Methods
@@ -207,26 +165,92 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ngOnInit"></a>
+                    <a name="deleteUser"></a>
                     <span class="name">
                         <b>
-                            ngOnInit
+                            deleteUser
                         </b>
-                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        <a href="#deleteUser"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>ngOnInit()</code>
+<code>deleteUser(userid)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="12"
-                            class="link-to-prism">src/app/app.component.ts:12</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/admin/admin.service.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>userid</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchUsers"></a>
+                    <span class="name">
+                        <b>
+                            fetchUsers
+                        </b>
+                        <a href="#fetchUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>fetchUsers()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="19"
+                            class="link-to-prism">src/app/admin/admin.service.ts:19</a></div>
                 </td>
             </tr>
 
@@ -243,81 +267,93 @@
         </tbody>
     </table>
 </section>
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="users"></a>
+                        <span class="name">
+                            <b>
+                            users</b>
+                            <a href="#users"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new BehaviorSubject&lt;UserResponse[]&gt;(null)</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/admin/admin.service.ts:15</a></div>
+                            </td>
+                        </tr>
 
-</div>
+
+            </tbody>
+        </table>
+</section>
+
+    </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { AuthService } from &#x27;./auth/auth.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { Injectable } from &#x27;@angular/core&#x27;;
+import { BehaviorSubject } from &#x27;rxjs&#x27;;
+import { map, tap } from &#x27;rxjs/operators&#x27;;
+import { environment } from &#x27;../../environments/environment&#x27;;
 
-@Component({
-  selector: &#x27;app-root&#x27;,
-  templateUrl: &#x27;./app.component.html&#x27;,
-  styleUrls: [&#x27;./app.component.css&#x27;],
-})
-export class AppComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+interface UserResponse {
+  email: string;
+  userId: string;
+  isAdmin: boolean;
+}
 
-  ngOnInit() {
-    this.authService.autoLogin();
-    Notification.requestPermission();
+@Injectable({ providedIn: &#x27;root&#x27; })
+export class AdminService {
+  users &#x3D; new BehaviorSubject&lt;UserResponse[]&gt;(null);
+
+  constructor(private http: HttpClient) {}
+
+  fetchUsers() {
+    this.http
+      .get&lt;UserResponse[]&gt;(environment.baseURL + &#x27;users&#x27;)
+      .pipe(
+        map((users) &#x3D;&gt; {
+          return users.map((user) &#x3D;&gt; {
+            return {
+              email: user.email,
+              userId: user.userId,
+              isAdmin: user.isAdmin,
+            };
+          });
+        }),
+        tap((users) &#x3D;&gt; {
+          this.users.next(users);
+        })
+      )
+      .subscribe();
+  }
+
+  deleteUser(userid) {
+    this.http
+      .delete&lt;Number&gt;(environment.baseURL + &#x60;users/${userid}&#x60;)
+      .subscribe(() &#x3D;&gt; {
+        this.fetchUsers();
+      });
   }
 }
 </code></pre>
     </div>
 
-    <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;app-header&gt;&lt;/app-header&gt;
-&lt;div class&#x3D;&quot;container&quot;&gt;
-  &lt;div class&#x3D;&quot;justify-content-center&quot;&gt;
-    &lt;router-outlet&gt;&lt;/router-outlet&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-styleData">
-                <p class="comment">
-                    <code>./app.component.css</code>
-                </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
-    </div>
-
-    <div class="tab-pane fade " id="c-tree">
-        <div id="tree-container"></div>
-        <div class="tree-legend">
-            <div class="title">
-                <b>Legend</b>
-            </div>
-            <div>
-                <div class="color htmlelement"></div><span>Html element</span>
-            </div>
-            <div>
-                <div class="color component"></div><span>Component</span>
-            </div>
-            <div>
-                <div class="color directive"></div><span>Html element with directive</span>
-            </div>
-        </div>
-    </div>
-
-    
 </div>
-
-<script src="../js/libs/vis.min.js"></script>
-<script src="../js/libs/htmlparser.js"></script>
-<script src="../js/libs/deep-iterator.js"></script>
-<script>
-        var COMPONENT_TEMPLATE = '<div><app-header></app-header><div class="container">  <div class="justify-content-center">    <router-outlet></router-outlet>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'LoadingSpinnerComponent', 'selector': 'app-loading-spinner'},{'name': 'ReminderAddComponent', 'selector': 'app-reminder-add'},{'name': 'ReminderComponent', 'selector': 'app-reminder'},{'name': 'ReminderListComponent', 'selector': 'app-reminder-list'},{'name': 'ReminderListItemComponent', 'selector': 'app-reminder-list-item'},{'name': 'SettingsComponent', 'selector': 'app-settings'}];
-    var DIRECTIVES = [];
-    var ACTUAL_COMPONENT = {'name': 'AppComponent'};
-</script>
-<script src="../js/tree.js"></script>
-
-
-
 
 
 
@@ -346,8 +382,8 @@ export class AppComponent implements OnInit {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppComponent.html';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

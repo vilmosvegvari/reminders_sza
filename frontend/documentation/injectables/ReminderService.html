@@ -78,6 +78,12 @@
                                 <a href="#allReminders">allReminders</a>
                             </li>
                             <li>
+                                <a href="#baseURL">baseURL</a>
+                            </li>
+                            <li>
+                                <a href="#notifications">notifications</a>
+                            </li>
+                            <li>
                                 <a href="#reminders">reminders</a>
                             </li>
                         </ul>
@@ -97,6 +103,9 @@
                             </li>
                             <li>
                                 <a href="#deleteReminder">deleteReminder</a>
+                            </li>
+                            <li>
+                                <a href="#getNotifications">getNotifications</a>
                             </li>
                             <li>
                                 <a href="#getReminders">getReminders</a>
@@ -130,7 +139,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/reminder/reminder.service.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/reminder/reminder.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -188,15 +197,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>createReminder(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, deadline: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, creation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, description: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, notification: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>createReminder(reminder: <a href="../classes/Reminder.html">Reminder</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="50"
-                            class="link-to-prism">src/app/reminder/reminder.service.ts:50</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">src/app/reminder/reminder.service.ts:95</a></div>
                 </td>
             </tr>
 
@@ -216,57 +225,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>name</td>
+                                    <td>reminder</td>
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>deadline</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>creation</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>description</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                    </td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>notification</td>
-                                    <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                <code><a href="../classes/Reminder.html" target="_self" >Reminder</a></code>
                                     </td>
 
                                     <td>
@@ -313,8 +274,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="86"
-                            class="link-to-prism">src/app/reminder/reminder.service.ts:86</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="129"
+                            class="link-to-prism">src/app/reminder/reminder.service.ts:129</a></div>
                 </td>
             </tr>
 
@@ -361,6 +322,45 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getNotifications"></a>
+                    <span class="name">
+                        <b>
+                            getNotifications
+                        </b>
+                        <a href="#getNotifications"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getNotifications()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">src/app/reminder/reminder.service.ts:66</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getReminders"></a>
                     <span class="name">
                         <b>
@@ -379,8 +379,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/reminder/reminder.service.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/reminder/reminder.service.ts:39</a></div>
                 </td>
             </tr>
 
@@ -418,8 +418,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/app/reminder/reminder.service.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="24"
+                            class="link-to-prism">src/app/reminder/reminder.service.ts:24</a></div>
                 </td>
             </tr>
 
@@ -488,8 +488,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="71"
-                            class="link-to-prism">src/app/reminder/reminder.service.ts:71</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="112"
+                            class="link-to-prism">src/app/reminder/reminder.service.ts:112</a></div>
                 </td>
             </tr>
 
@@ -562,21 +562,71 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>[
-    {
-      id: &#x27;1&#x27;,
-      name: &#x27;Buy food&#x27;,
-      deadline: new Date(),
-      creation: new Date(),
-      notification: &#x27;email&#x27;,
-      description: &#x27; I need to buy food to not die.&#x27;,
-    },
-  ]</code>
+                            <i>Default value : </i><code>[]</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/reminder/reminder.service.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/reminder/reminder.service.ts:12</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="baseURL"></a>
+                        <span class="name">
+                            <b>
+                            baseURL</b>
+                            <a href="#baseURL"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/reminder/reminder.service.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="notifications"></a>
+                        <span class="name">
+                            <b>
+                            notifications</b>
+                            <a href="#notifications"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[]</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/reminder/reminder.service.ts:65</a></div>
                             </td>
                         </tr>
 
@@ -610,7 +660,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/reminder/reminder.service.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/reminder/reminder.service.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -626,34 +676,33 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
 import { BehaviorSubject } from &#x27;rxjs&#x27;;
-import { take } from &#x27;rxjs/operators&#x27;;
+import { map, take } from &#x27;rxjs/operators&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
 
 import { Reminder } from &#x27;./reminder.model&#x27;;
 
 @Injectable({ providedIn: &#x27;root&#x27; })
 export class ReminderService {
   // this is for searching
-  allReminders: Reminder[] &#x3D; [
-    {
-      id: &#x27;1&#x27;,
-      name: &#x27;Buy food&#x27;,
-      deadline: new Date(),
-      creation: new Date(),
-      notification: &#x27;email&#x27;,
-      description: &#x27; I need to buy food to not die.&#x27;,
-    },
-  ];
-  //this is what we showing
+  allReminders: Reminder[] &#x3D; [];
+  // this is what we showing
   reminders: BehaviorSubject&lt;Reminder[]&gt; &#x3D; new BehaviorSubject(
     this.allReminders
   );
 
-  constructor(private http: HttpClient) {}
+  baseURL: string;
+
+  constructor(private http: HttpClient) {
+    this.baseURL &#x3D; environment.baseURL;
+  }
 
   search(text: string) {
     if (text) {
-      let newReminders &#x3D; this.allReminders.filter((reminder) &#x3D;&gt;
-        reminder.name.toUpperCase().includes(text.toUpperCase())
+      let newReminders &#x3D; this.allReminders.filter(
+        (reminder) &#x3D;&gt;
+          reminder.name.toUpperCase().includes(text.toUpperCase()) ||
+          reminder.notification.toUpperCase().includes(text.toUpperCase()) ||
+          reminder.deadlineString.toUpperCase().includes(text.toUpperCase())
       );
 
       this.reminders.next(newReminders);
@@ -664,28 +713,70 @@ export class ReminderService {
 
   getReminders() {
     this.http
-      .get&lt;Reminder[]&gt;(&#x27;http://localhost:3000/reminders&#x27;, {})
-      .pipe(take(1))
+      .get&lt;Reminder[]&gt;(this.baseURL + &#x27;reminders&#x27;, {})
+      .pipe(
+        map((reminders) &#x3D;&gt; {
+          return reminders.map((reminder) &#x3D;&gt; {
+            return {
+              ...reminder,
+              deadlineString: new Date(reminder.deadline)
+                .toLocaleString()
+                .slice(0, -3),
+              creationString: new Date(reminder.creation)
+                .toLocaleString()
+                .slice(0, -3),
+            };
+          });
+        }),
+        take(1)
+      )
       .subscribe((response) &#x3D;&gt; {
         this.allReminders &#x3D; response;
         this.reminders.next(this.allReminders);
+        this.getNotifications();
       });
   }
 
-  createReminder(
-    name: string,
-    deadline: Date,
-    creation: Date,
-    description: string,
-    notification: string
-  ) {
+  notifications &#x3D; [];
+  getNotifications() {
     this.http
-      .post&lt;Reminder&gt;(&#x27;http://localhost:3000/reminders&#x27;, {
-        name: name,
-        deadline: deadline,
-        description: description,
-        notification: notification,
-        creation: creation,
+      .get&lt;Reminder[]&gt;(this.baseURL + &#x27;reminders/web&#x27;, {})
+      .pipe(take(1))
+      .subscribe((response) &#x3D;&gt; {
+        if (this.notifications.length) {
+          this.notifications.forEach((n) &#x3D;&gt; {
+            clearTimeout(n);
+          });
+        }
+        response.forEach((r) &#x3D;&gt; {
+          if (new Date() &lt; new Date(r.deadline)) {
+            let milis &#x3D; Math.abs(
+              new Date(r.deadline).getTime() - new Date().getTime()
+            );
+            let notificationTimeout &#x3D; setTimeout(() &#x3D;&gt; {
+              var notification &#x3D; new Notification(&#x27;Reminders&#x27;, {
+                body: &#x60;Your reminder: ${r.name} is due now!&#x60;,
+              });
+              notification.onclick &#x3D; () &#x3D;&gt; {
+                notification.close();
+              };
+            }, milis);
+            this.notifications.push(notificationTimeout);
+          }
+        });
+      });
+  }
+
+  createReminder(reminder: Reminder) {
+    this.http
+      .post&lt;Reminder&gt;(this.baseURL + &#x27;reminders&#x27;, {
+        name: reminder.name,
+        deadline: reminder.deadline,
+        description: reminder.description,
+        notification: reminder.notification,
+        creation: reminder.creation,
+        callbackUrl:
+          reminder.notification &#x3D;&#x3D;&#x3D; &#x27;API&#x27; ? reminder.callbackUrl : &#x27;&#x27;,
       })
       .pipe(take(1))
       .subscribe((response) &#x3D;&gt; {
@@ -695,12 +786,14 @@ export class ReminderService {
 
   updateReminder(reminder: Reminder) {
     this.http
-      .put&lt;Reminder&gt;(&#x60;http://localhost:3000/reminders/${reminder.id}&#x60;, {
+      .put&lt;Reminder&gt;(this.baseURL + &#x60;reminders/${reminder.id}&#x60;, {
         name: reminder.name,
         deadline: reminder.deadline,
         description: reminder.description,
         notification: reminder.notification,
         creation: reminder.creation,
+        callbackUrl:
+          reminder.notification &#x3D;&#x3D;&#x3D; &#x27;API&#x27; ? reminder.callbackUrl : &#x27;&#x27;,
       })
       .pipe(take(1))
       .subscribe((response) &#x3D;&gt; {
@@ -710,7 +803,7 @@ export class ReminderService {
 
   deleteReminder(reminderid) {
     this.http
-      .delete&lt;Reminder&gt;(&#x60;http:/localhost:3000/reminders/${reminderid}&#x60;)
+      .delete&lt;Reminder&gt;(this.baseURL + &#x60;reminders/${reminderid}&#x60;)
       .pipe(take(1))
       .subscribe((response) &#x3D;&gt; {
         this.getReminders();
