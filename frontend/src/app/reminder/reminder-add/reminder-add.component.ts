@@ -30,9 +30,12 @@ export class ReminderAddComponent implements OnInit {
   ngOnInit(): void {
     if (this.remindertoModify) {
       this.formName = this.remindertoModify.name;
-      this.formDeadline = new Date(this.remindertoModify.deadline)
-        .toISOString()
-        .slice(0, -1);
+      let date = new Date(this.remindertoModify.deadline);
+      this.formDeadline = `${date.getFullYear()}-${
+        date.getMonth() + 1
+      }-${date.getDate()}T${date.getHours()}:${
+        (date.getMinutes() < 10 ? '0' : '') + date.getMinutes()
+      }`; //yyyy-MM-ddThh:mm
       this.formDescription = this.remindertoModify.description;
       this.formNotification = this.remindertoModify.notification;
       this.formCallbackUrl = this.remindertoModify.callbackUrl;
